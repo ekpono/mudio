@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\State;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
+use Torann\GeoIP\Facades\GeoIP;
 
 class RegisteredUserController extends Controller
 {
@@ -41,6 +43,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'ip' => $request->ip(),
+            'state_id' => $this->getStateViaIp($request->ip())
         ]);
 
         event(new Registered($user));
@@ -48,5 +52,16 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function getStateViaIp($ip)
+    {
+        $location = GeoIP::getLocation($ip);
+
+        $country = $location->country;
+        $state = State::where('name', 'LIKE', "%$location->state_name%")->first();
+
+
+        return $state->id;
     }
 }

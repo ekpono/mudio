@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -57,3 +58,16 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });
+
+
+//Facebook Auth
+Route::get('auth/facebook', [AuthController::class, 'redirectToFacebook']);
+Route::get('auth/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
+
+//Twitter Auth
+Route::get('auth/twitter', [AuthController::class, 'redirectToTwitter']);
+Route::get('auth/twitter/callback', [AuthController::class, 'handleTwitterCallback']);
+
+//Instagram Auth
+Route::get('auth/instagram', [AuthController::class, 'redirectToInstagram']);
+Route::get('auth/instagram/callback', [AuthController::class, 'handleInstagramCallback']);
