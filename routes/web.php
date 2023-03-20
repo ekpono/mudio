@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,18 +17,19 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', GuestController::class)->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/home', DashboardController::class)->name('home');
+    Route::get('/uploads', [DashboardController::class, 'uploads'])->name('my.uploads');
+
+    //API
+    Route::get('personal/files', [MediaController::class, 'myUploads']);
+    Route::get('files', [MediaController::class, 'index']);
+    Route::post('file', [MediaController::class, 'store']);
+    Route::patch('file/{media}', [MediaController::class, 'update']);
+    Route::delete('file/{media}', [MediaController::class, 'delete']);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

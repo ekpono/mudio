@@ -1,100 +1,78 @@
 <script setup>
-import { Head, Link, usePage } from "@inertiajs/vue3";
-import {onMounted, reactive, ref} from "vue";
-import InfiniteLoading from "v3-infinite-loading"
-import "v3-infinite-loading/lib/style.css"
-import ModalCreateVideo from "@/Components/Media/ModalCreateVideo.vue";
+import {reactive, ref} from "vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
+import DeleteButton from "@/Components/DeleteButton.vue";
 import DashboardLayout from "@/Layouts/DashboardLayout.vue";
 import NotificationAlert from "@/Components/NotificationAlert.vue";
-import Greetings from "@/Components/Greetings.vue";
+import {Head, Link, usePage, router } from "@inertiajs/vue3";
+import ModalDeleteVideo from "@/Components/Media/ModalDeleteVideo.vue";
+import ModalEditMedia from "@/Components/Media/ModalEditMedia.vue";
 import MediaSummary from "@/Components/Media/MediaSummary.vue";
+import InfiniteLoading from "v3-infinite-loading"
+import "v3-infinite-loading/lib/style.css"
 import axios from "axios";
-const mediaSummary = usePage().props.summary;
-// const media = usePage().props.media.data
+const mediaSummary = usePage().props.summary
 const media = ref([])
-const page = ref(1);
+const selectedMedia = ref([])
+const showAlert = ref(false)
+const showDeleteConfirmation = ref(false)
+const showEditModal = ref(false)
 const isLoading = ref(false)
-
+const page = ref(1)
 const getMedia = async ($state) => {
     isLoading.value = true;
     try {
-        const response = await axios.get(`/files?page=${page.value}`)
+        const response = await axios.get(`/personal/files?page=${page.value}`)
         const json = await response.data.media
         isLoading.value = false
         if (json.length < 2) $state.complete()
         else {
             media.value.push(...json)
-            console.log(media)
             $state.loaded()
         }
-        media.value.push(json)
         page.value++
     } catch (error) {
         console.log(error)
         isLoading.value = false
     }
 }
-const showAlert = ref(false);
 
-const onCreateSuccess = () => {
-    toggleAlert();
-    toggleCreateModal();
-};
+const toggleDeleteModal = () => {
+    showDeleteConfirmation.value = ! showDeleteConfirmation.value
+}
+const toggleEditModal = () => {
+    showEditModal.value = ! showEditModal.value
+}
+const deleteSuccess = () => {
+    //Do partial reload
+    toggleDeleteModal()
+    router.reload({ only: ["media", "summary"] })
+    media.value = usePage().props.media.data;
+}
+const activateDeleteModal = (file) => {
+    selectedMedia.value = file
+    showDeleteConfirmation.value = true
+}
 
-// Create Video Modal
-const openCreateModal = ref(false);
+const activateEditModal = (file) => {
+    selectedMedia.value = file
+    showEditModal.value = true
+}
 
-const toggleAlert = () => {
-    showAlert.value = !showAlert.value;
-};
-
-const toggleCreateModal = () => {
-    openCreateModal.value = !openCreateModal.value;
-};
+const editSuccess = () => {
+    toggleEditModal()
+}
 </script>
 <template>
-    <Head title="Dashboard" />
+    <Head title="Uploads" />
     <DashboardLayout>
         <!-- Page header -->
-        <div class="bg-white shadow">
-            <div class="px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
-                <div
-                    class="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200"
-                >
-                    <div class="min-w-0 flex-1">
-                        <!-- Profile -->
-                        <div class="flex items-center">
-                            <div>
-                                <div class="flex items-center">
-                                    <img
-                                        class="h-16 w-16 rounded-full sm:hidden"
-                                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
-                                        alt=""
-                                    />
-                                    <div
-                                        class="ml-3 text-2xl flex font-bold leading-7 text-gray-900 sm:truncate sm:leading-9"
-                                    >
-                                        <Greetings />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-                        <PrimaryButton @click="toggleCreateModal">
-                            Upload Media
-                        </PrimaryButton>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="mt-8">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                 <h2 class="text-lg font-medium leading-6 text-gray-900">
-                    Overview
+                    My Uploads
                 </h2>
-                <MediaSummary :mediaSummary="mediaSummary" />
+                <MediaSummary :mediaSummary="usePage().props.summary" />
             </div>
             <h2
                 class="mx-auto mt-8 max-w-6xl px-4 text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8 mb-4"
@@ -108,16 +86,16 @@ const toggleCreateModal = () => {
                     :title="'Successfully uploaded'"
                 />
                 <ul
-                    v-if="media.length > 0"
                     role="list"
                     class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                    v-if="media.length > 0"
                 >
                     <li
                         v-for="file in media"
                         :key="file.email"
                         class="col-span-1 divide-gray-200 rounded-lg bg-white cursor-pointer motion-safe:hover:scale-[1.03]"
                     >
-                        <Link :href="`/watch/${file.id}`">
+                        <Link :href="`/video/${file.id}`">
                             <div
                                 class="flex w-full items-center justify-between space-x-6"
                             >
@@ -151,27 +129,39 @@ const toggleCreateModal = () => {
                                 </div>
                             </div>
                         </Link>
+                        <div class="mt-5 space-x-3 text-right">
+                            <PrimaryButton @click="activateEditModal(file)">Edit</PrimaryButton>
+                            <DeleteButton @click="activateDeleteModal(file)"
+                            >Delete</DeleteButton>
+                        </div>
                     </li>
                 </ul>
                 <div v-else>
                     <h1>No Upload Found</h1>
                 </div>
             </div>
+            <InfiniteLoading @infinite="getMedia">
+                <template #spinner>
+                    <!--                <span><Loading :loading="true" /></span>-->
+                    <div>Loading</div>
+                </template>
+                <template #complete>
+                    <span />
+                </template>
+            </InfiniteLoading>
+            <ModalDeleteVideo
+                :toggleModal="showDeleteConfirmation"
+                @close:modal="toggleDeleteModal"
+                @delete:success="deleteSuccess"
+                :media="selectedMedia"
+            />
+            <ModalEditMedia
+                :toggleModal="showEditModal"
+                :media="selectedMedia"
+                @edit:success="editSuccess"
+                @close:modal="toggleEditModal"
+            />
         </div>
-        <InfiniteLoading @infinite="getMedia">
-            <template #spinner>
-<!--                <span><Loading :loading="true" /></span>-->
-                <div>Loading</div>
-            </template>
-            <template #complete>
-                <span />
-            </template>
-        </InfiniteLoading>
     </DashboardLayout>
-    <ModalCreateVideo
-        :toggle-create-modal="openCreateModal"
-        @close:modal="toggleCreateModal"
-        @upload:success="onCreateSuccess"
-    />
-</template>
 
+</template>
