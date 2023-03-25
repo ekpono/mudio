@@ -27,7 +27,7 @@ class Media extends Model
     protected function path(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => 'http://127.0.0.1:5173/storage/app/'.$value
+            get: fn (string $value) => config('app.asset_url').'/storage/app/'.$value
         );
     }
 
@@ -36,10 +36,10 @@ class Media extends Model
         return Attribute::make(
             get: function (string $value) {
                 if ($this->file_type === 'audio') {
-                    return 'http://127.0.0.1:5173/storage/app/public/'.$value;
+                    return config('app.asset_url').'/storage/app/public/'.$value;
                 }
 
-                return 'http://127.0.0.1:5173/storage/'.$value;
+                return config('app.asset_url').'/storage/'.$value;
             }
         );
     }

@@ -25,7 +25,7 @@ const getMedia = async ($state) => {
         const response = await axios.get(`/personal/files?page=${page.value}`)
         const json = await response.data.media
         isLoading.value = false
-        if (json.length < 2) $state.complete()
+        if (json.length < 1) $state.complete()
         else {
             media.value.push(...json)
             $state.loaded()
