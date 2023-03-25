@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link, usePage } from "@inertiajs/vue3";
-import {onMounted, reactive, ref} from "vue";
+import { ref, inject } from "vue";
 import InfiniteLoading from "v3-infinite-loading"
 import "v3-infinite-loading/lib/style.css"
 import ModalCreateVideo from "@/Components/Media/ModalCreateVideo.vue";
@@ -18,14 +18,14 @@ const isLoading = ref(false)
 
 const getMedia = async ($state) => {
     isLoading.value = true;
+    let queryParam = route().params.q ?? ''
     try {
-        const response = await axios.get(`/files?page=${page.value}`)
+        const response = await axios.get(`/files?query=${queryParam}&page=${page.value}`)
         const json = await response.data.media
         isLoading.value = false
         if (json.length < 1) $state.complete()
         else {
             media.value.push(...json)
-            console.log(media)
             $state.loaded()
         }
         page.value++
@@ -159,7 +159,7 @@ const toggleCreateModal = () => {
         </div>
         <InfiniteLoading @infinite="getMedia">
             <template #spinner>
-<!--                <span><Loading :loading="true" /></span>-->
+                <!--                <span><Loading :loading="true" /></span>-->
                 <div>Loading</div>
             </template>
             <template #complete>

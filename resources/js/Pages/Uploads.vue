@@ -22,7 +22,8 @@ const page = ref(1)
 const getMedia = async ($state) => {
     isLoading.value = true;
     try {
-        const response = await axios.get(`/personal/files?page=${page.value}`)
+        let queryParam = route().params.q ?? ''
+        const response = await axios.get(`/personal/files?query=${queryParam}&page=${page.value}`)
         const json = await response.data.media
         isLoading.value = false
         if (json.length < 1) $state.complete()
