@@ -179,7 +179,7 @@ let sidebarOpen = ref(false);
         </div>
         <div class="flex flex-1 flex-col lg:pl-64">
             <div
-                class="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:border-none"
+                class="flex h-16 top-0 sticky flex-shrink-0 border-b border-gray-200 bg-white lg:border-none"
             >
                 <button
                     type="button"
