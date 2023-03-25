@@ -22,6 +22,7 @@ Route::get('/', GuestController::class)->name('dashboard');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', DashboardController::class)->name('home');
     Route::get('/uploads', [DashboardController::class, 'uploads'])->name('my.uploads');
+    Route::get('/watch/{media}', [DashboardController::class, 'show']);
 
     //API
     Route::get('personal/files', [MediaController::class, 'myUploads']);
