@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +25,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', DashboardController::class)->name('home');
     Route::get('/uploads', [DashboardController::class, 'uploads'])->name('my.uploads');
     Route::get('/watch/{media}', [DashboardController::class, 'show']);
-
     //API
+
+    //Media
     Route::get('personal/files', [MediaController::class, 'myUploads']);
     Route::get('files', [MediaController::class, 'index']);
     Route::post('file', [MediaController::class, 'store']);
     Route::patch('file/{media}', [MediaController::class, 'update']);
     Route::delete('file/{media}', [MediaController::class, 'delete']);
+
+    //Country
+    Route::get('countries', [CountryController::class, 'index']);
+
+    //Settings
+    Route::post('settings', [SettingsController::class, 'store'])->name('settings.store');
 });
 
 Route::middleware('auth')->group(function () {

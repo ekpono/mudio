@@ -8,24 +8,23 @@ use App\Http\Requests\SearchMediaRequest;
 use App\Http\Resources\MediaResource;
 use App\Models\Media;
 use App\Services\LocalDiskUpload;
+use App\Services\MediaService;
 use Illuminate\Http\Request;
 
 class MediaController extends Controller
 {
-    public function index(Request $request)
+    public function index(SearchMediaRequest $request)
     {
-        //Todo Extract this to request class for validation
-        $query = $request->query('query');
+        $media = MediaService::getMediaQuery($request->query('query'));
+
         return response()->json([
-            'media' => MediaResource::collection(Media::public()->where('title', 'like', '%'.$query.'%')
-                ->orWhere('description', 'like', '%'.$query.'%')->paginate(Helper::API_PER_PAGE)),
+            'media' => MediaResource::collection($media->paginate(Helper::API_PER_PAGE)),
             'message' => 'Successfully fetched'
         ]);
     }
 
     public function myUploads(SearchMediaRequest $request)
     {
-        //Todo Extract this to request class for validation
         $query = $request->query('query');
         $media = MediaResource::collection(Media::with(['tags' => function ($query) {
             $query->select('name');
@@ -33,6 +32,7 @@ class MediaController extends Controller
             ->where('title', 'like', '%'.$query.'%')
             ->orWhere('description', 'like', '%'.$query.'%')
             ->where('user_id', auth()->id())
+            ->latest()
             ->paginate(Helper::API_PER_PAGE));
 
         return response()->json([

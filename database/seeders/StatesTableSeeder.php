@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Continent;
+use App\Models\State;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class StatesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        if (Continent::count() > 0) return;
+        if (State::count() > 0) return;
         $statesData = json_decode(file_get_contents(database_path('seeders/data/states.json')));
 
         foreach ($statesData as $stateData) {

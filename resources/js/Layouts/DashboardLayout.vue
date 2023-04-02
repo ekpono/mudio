@@ -193,7 +193,7 @@ let sidebarOpen = ref(false);
                 <div
                     class="flex flex-1 justify-between px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8"
                 >
-                    <div class="flex flex-1">
+                    <div class="flex flex-1 ">
                         <form
                             class="flex w-full md:ml-0"
                             action="#"
@@ -277,14 +277,14 @@ let sidebarOpen = ref(false);
                                         >
                                     </MenuItem>
                                     <MenuItem v-slot="{ active }">
-                                        <a
+                                        <Link
                                             :href="route('logout')"
+                                            method="post"
                                             :class="[
                                                 active ? 'bg-gray-100' : '',
                                                 'block px-4 py-2 text-sm text-gray-700',
                                             ]"
-                                        >Logout</a
-                                        >
+                                        >Logout</Link>
                                     </MenuItem>
                                 </MenuItems>
                             </transition>

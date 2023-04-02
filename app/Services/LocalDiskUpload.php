@@ -7,6 +7,7 @@ use FFMpeg\Coordinate\TimeCode;
 use FFMpeg\FFMpeg;
 use getID3;
 use Illuminate\Support\Facades\Storage;
+use Torann\GeoIP\Facades\GeoIP;
 
 class LocalDiskUpload
 {
@@ -28,6 +29,7 @@ class LocalDiskUpload
 
         $extension = $file->getClientOriginalExtension();
         $filename = $file->getClientOriginalName();
+        [$state, $country, $continent] = $this->getGeoInformation();
 
         $media = Media::create([
             'title' => $title,
@@ -41,6 +43,9 @@ class LocalDiskUpload
             'visibility' => $visibility,
             'description' => $description,
             'uploaded_from_ip' => request()->ip(),
+            'state' => $state,
+            'country' => $country,
+            'continent' => $continent
         ]);
 
         $filePath = $media->path;
@@ -50,7 +55,8 @@ class LocalDiskUpload
         }
 
         if (in_array($extension, $this->videoExtensions())) {
-            $this->createVideoThumbnail($filePath, $thumbnailPath);
+            $path = storage_path().'/app/'.$filePathName;
+            $this->createVideoThumbnail($path, $thumbnailPath);
         }
 
         if (in_array($extension, $this->audioExtensions())) {
@@ -62,6 +68,13 @@ class LocalDiskUpload
             'filename' => $filename,
             'path' => $filePath,
         ];
+    }
+
+    public function getGeoInformation()
+    {
+        $userLocation = GeoIP::getLocation();
+
+        return [$userLocation['state_name'], $userLocation['country'], $userLocation['continent']];
     }
 
     private function audioExtensions()
@@ -77,7 +90,10 @@ class LocalDiskUpload
     private function createVideoThumbnail($videoPath, $thumbnailPath)
     {
         $ffmpeg = FFMpeg::create([
-            'timeout' => 0,
+            'ffmpeg.binaries'  => config('ffmpeg.ffmpeg_binaries'),
+            'ffprobe.binaries' => config('ffmpeg.ffprobe_binaries'),
+            'timeout'          => config('ffmpeg.timeout'),
+            'ffmpeg.threads'   => config('ffmpeg.ffmpeg.threads'),
         ]);
         $video = $ffmpeg->open($videoPath);
         $frame = $video->frame(TimeCode::fromSeconds(1));
