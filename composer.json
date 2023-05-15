@@ -8,9 +8,12 @@
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.8",
+        "jenssegers/mongodb": "dev-master",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
+        "mongodb/mongodb": "^1.15",
+        "soyuka/stubs-mongodb": "^1.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
