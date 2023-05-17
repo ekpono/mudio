@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Continent;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ContinentsTableSeeder extends Seeder
