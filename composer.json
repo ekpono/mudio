@@ -10,6 +10,7 @@
         "inertiajs/inertia-laravel": "^0.6.8",
         "intervention/image": "^2.7",
         "james-heinrich/getid3": "^1.9",
+        "jenssegers/mongodb": "dev-master",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.6",
@@ -17,7 +18,9 @@
         "php-ffmpeg/php-ffmpeg": "^1.1",
         "spatie/laravel-tags": "^4.3",
         "tightenco/ziggy": "^1.0",
-        "torann/geoip": "^3.0"
+        "torann/geoip": "^3.0",
+        "mongodb/mongodb": "^1.15",
+        "soyuka/stubs-mongodb": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
