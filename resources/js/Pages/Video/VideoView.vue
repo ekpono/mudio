@@ -8,7 +8,13 @@ import { Link } from '@inertiajs/vue3';
 import CreateComment from "@/Components/Comment/CreateComment.vue";
 import ViewComment from "@/Components/Comment/ViewComment.vue";
 import axios from "axios";
+import { HandThumbDownIcon, HandThumbUpIcon} from "@heroicons/vue/20/solid";
+import { HandThumbUpIcon as OutlineHandThumbUpIcon, HandThumbDownIcon as OutlineHandThumbDownIcon } from "@heroicons/vue/24/outline";
+
 const media = ref(usePage().props.media.data);
+const liked = ref(media.value.is_liked);
+const disliked = ref(media.value.is_disliked)
+
 const mostViewed = ref(usePage().props.most_viewed.data);
 const comments = ref([]);
 const isCommentLoading = ref(false);
@@ -41,6 +47,51 @@ const deleteComment = (comment) => {
 
     axios.delete(`/media/comments/${comment.id}`)
 }
+
+const toggleLike = () => {
+    if (liked.value) {
+        liked.value = false;
+        sendLikeRequest();
+    } else {
+        liked.value = true;
+        disliked.value = false;
+        sendLikeRequest();
+    }
+};
+
+const toggleDislike = () => {
+    if (disliked.value) {
+        disliked.value = false;
+        liked.value = false;
+        sendDislikeRequest();
+    } else {
+        liked.value = false;
+        disliked.value = true;
+        sendDislikeRequest()
+    }
+};
+
+const sendLikeRequest = () => {
+    axios
+        .post(`/media/${media.value.id}/like`)
+        .then((response) => {
+            // Handle success if needed
+        })
+        .catch((error) => {
+            // Handle error if needed
+        });
+};
+
+const sendDislikeRequest = () => {
+    axios
+        .post(`/media/${media.value.id}/dislike`)
+        .then((response) => {
+            // Handle success if needed
+        })
+        .catch((error) => {
+            // Handle error if needed
+        });
+};
 
 </script>
 <template>
@@ -83,7 +134,21 @@ const deleteComment = (comment) => {
                                         </div>
                                         <div class="video-details mt-3">
                                             <h1 class=" font-bold">{{ media.title }}</h1>
-                                            <div>{{ media.views }} views &middot {{ media.date_created}}</div>
+                                            <div class="flex justify-between">
+                                                <div>{{ media.views }} views &middot {{ media.date_created}}</div>
+                                                <div class="flex">
+                                                    <div class=" flex mr-2 cursor-pointer hover:bg-gray-300 rounded p-1" @click="toggleLike">
+                                                        <HandThumbUpIcon v-if="liked" class="h-5 w-5" />
+                                                        <OutlineHandThumbUpIcon v-else class="h-5 w-5" />
+                                                        {{ media.count_like }}
+                                                    </div>
+                                                    |
+                                                    <div class="ml-2 cursor-pointer hover:bg-gray-300 rounded p-1" @click="toggleDislike">
+                                                        <HandThumbDownIcon v-if="disliked" class="h-5 w-5" />
+                                                        <OutlineHandThumbDownIcon v-else class="h-5 w-5" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="-mt-px flex divide-gray-200 mt-3">
                                                 <div class="flex w-0 flex-1 space-x-2 items-center">
                                                     <img

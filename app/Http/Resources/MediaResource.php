@@ -26,6 +26,13 @@ class MediaResource extends JsonResource
             'poster' => $this->poster,
             'tags' => $this->cleanUpTags($this->tags),
             'visibility' => $this->visibility,
+            'count_like' => $this->likesAndDislikes()->where('type', 'like')->count(),
+            'is_liked' => $this->likesAndDislikes()->where('type', 'like')
+                ->where('user_id', auth()->id())
+                ->exists(),
+            'is_disliked' => $this->likesAndDislikes()->where('type', 'dislike')
+                ->where('user_id', auth()->id())
+                ->exists()
         ];
     }
 

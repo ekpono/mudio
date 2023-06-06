@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Tags\HasTags;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Media extends Model
 {
@@ -63,5 +64,15 @@ class Media extends Model
     public function scopeAuth(Builder $query): void
     {
         $query->where('user_id', auth()->id());
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function likesAndDislikes(): MorphMany
+    {
+        return $this->morphMany(LikeAndDislike::class, 'likeable');
     }
 }
