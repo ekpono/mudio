@@ -17,6 +17,7 @@ class Media extends Model
     protected $fillable = [
         'user_id', 'file_name', 'title', 'description', 'uploaded_from_ip', 'file_type', 'path',
         'extension', 'poster', 'source', 'visibility', 'response', 'updated_by', 'deleted_by',
+        'comments_enabled'
     ];
 
     public function user()

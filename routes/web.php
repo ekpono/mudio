@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommentReplyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\MediaCommentController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +32,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('file/{media}', [MediaController::class, 'update']);
     Route::delete('file/{media}', [MediaController::class, 'delete']);
 });
+
+// Comments
+Route::get('/{media}/comments', [MediaCommentController::class, 'index']);
+Route::post('/media/{media}/comments/enable', [MediaCommentController::class, 'enableComments']);
+Route::post('/media/{media}/comments/disable', [MediaCommentController::class, 'disableComments']);
+Route::post('/media/{media}/comments', [MediaCommentController::class, 'store']);
+Route::delete('/media/comments/{comment}', [MediaCommentController::class, 'destroy']);
+Route::post('/media/comments/{comment}/reply', [CommentReplyController::class, 'store']);
+Route::get('/media/comments/{comment}/reply', [CommentReplyController::class, 'index']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
