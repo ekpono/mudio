@@ -3,11 +3,13 @@
 use App\Http\Controllers\CommentReplyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\FlagController;
 use App\Http\Controllers\MediaCommentController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaLikeDislikeController;
+use App\Http\Controllers\FlagTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +47,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //Likes and dislikes
     Route::post('/media/{media}/like', [MediaLikeDislikeController::class, 'toggleLike']);
     Route::post('/media/{media}/dislike', [MediaLikeDislikeController::class, 'toggleDislike']);
+
+    //Flag and Report
+    Route::post('/media/{media}/flags', [FlagController::class, 'store']);
+    Route::get('/media/{media}/flags', [FlagController::class, 'index']);
+    Route::get('/media/flag/types', [FlagTypeController::class, 'index']);
 
 });
 

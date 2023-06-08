@@ -10,6 +10,7 @@ import ViewComment from "@/Components/Comment/ViewComment.vue";
 import axios from "axios";
 import { HandThumbDownIcon, HandThumbUpIcon} from "@heroicons/vue/20/solid";
 import { HandThumbUpIcon as OutlineHandThumbUpIcon, HandThumbDownIcon as OutlineHandThumbDownIcon } from "@heroicons/vue/24/outline";
+import FlagAndReport from "@/Components/Media/FlagAndReport.vue";
 
 const media = ref(usePage().props.media.data);
 const liked = ref(media.value.is_liked);
@@ -146,6 +147,9 @@ const sendDislikeRequest = () => {
                                                     <div class="ml-2 cursor-pointer hover:bg-gray-300 rounded p-1" @click="toggleDislike">
                                                         <HandThumbDownIcon v-if="disliked" class="h-5 w-5" />
                                                         <OutlineHandThumbDownIcon v-else class="h-5 w-5" />
+                                                    </div>
+                                                    <div class="ml-2">
+                                                        <flag-and-report :media="media" />
                                                     </div>
                                                 </div>
                                             </div>

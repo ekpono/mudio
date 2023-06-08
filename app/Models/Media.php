@@ -75,4 +75,9 @@ class Media extends Model
     {
         return $this->morphMany(LikeAndDislike::class, 'likeable');
     }
+
+    public function flags()
+    {
+        return $this->hasMany(Flag::class);
+    }
 }
