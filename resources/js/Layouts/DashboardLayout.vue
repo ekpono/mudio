@@ -76,7 +76,7 @@ let sidebarOpen = ref(false);
                                         @click="sidebarOpen = false"
                                     >
                                         <span class="sr-only"
-                                            >Close sidebar</span
+                                        >Close sidebar</span
                                         >
                                         <XMarkIcon
                                             class="h-6 w-6 text-white"
@@ -134,11 +134,11 @@ let sidebarOpen = ref(false);
                                     <span class="flex min-w-0 flex-1 flex-col">
                                         <span
                                             class="truncate text-sm font-medium text-gray-900"
-                                            >{{ $page.props.auth.user.name }}</span
+                                        >{{ $page.props.auth.user.name }}</span
                                         >
                                         <span
                                             class="truncate text-sm text-gray-500"
-                                            >{{ $page.props.auth.user.email }}</span
+                                        >{{ $page.props.auth.user.email }}</span
                                         >
                                     </span>
                                 </span>
@@ -154,7 +154,7 @@ let sidebarOpen = ref(false);
                             :key="item.name"
                             :href="item.href"
                             :class="[
-                                $page.url === item.href
+                                $page.url.includes(item.href)
                                     ? 'bg-gray-200 text-gray-900'
                                     : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900',
                                 'group flex items-center rounded-md px-2 py-2 text-sm font-medium',
@@ -179,7 +179,7 @@ let sidebarOpen = ref(false);
         </div>
         <div class="flex flex-1 flex-col lg:pl-64">
             <div
-                class="flex h-16 flex-shrink-0 border-b border-gray-200 bg-white lg:border-none"
+                class="flex h-16 top-0 sticky flex-shrink-0 border-b border-gray-200 bg-white lg:border-none"
             >
                 <button
                     type="button"
@@ -193,14 +193,14 @@ let sidebarOpen = ref(false);
                 <div
                     class="flex flex-1 justify-between px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8"
                 >
-                    <div class="flex flex-1">
+                    <div class="flex flex-1 ">
                         <form
                             class="flex w-full md:ml-0"
                             action="#"
                             method="GET"
                         >
                             <label for="search-field" class="sr-only"
-                                >Search</label
+                            >Search</label
                             >
                             <div
                                 class="relative w-full text-gray-400 focus-within:text-gray-600"
@@ -216,9 +216,9 @@ let sidebarOpen = ref(false);
                                 </div>
                                 <input
                                     id="search-field"
-                                    name="search-field"
+                                    name="q"
                                     class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                                    placeholder="Search transactions"
+                                    placeholder="Search media files"
                                     type="search"
                                 />
                             </div>
@@ -245,9 +245,9 @@ let sidebarOpen = ref(false);
                                     />
                                     <span
                                         class="ml-3 hidden text-sm font-medium text-gray-700 lg:block"
-                                        ><span class="sr-only"
-                                            >Open user menu for </span
-                                        >{{ $page.props.auth.user.name }}</span
+                                    ><span class="sr-only"
+                                    >Open user menu for </span
+                                    >{{ $page.props.auth.user.name }}</span
                                     >
                                     <ChevronDownIcon
                                         class="ml-1 hidden h-5 w-5 flex-shrink-0 text-gray-400 lg:block"
@@ -273,18 +273,18 @@ let sidebarOpen = ref(false);
                                                 active ? 'bg-gray-100' : '',
                                                 'block px-4 py-2 text-sm text-gray-700',
                                             ]"
-                                            >Your Profile</a
+                                        >Your Profile</a
                                         >
                                     </MenuItem>
                                     <MenuItem v-slot="{ active }">
-                                        <a
+                                        <Link
                                             :href="route('logout')"
+                                            method="post"
                                             :class="[
                                                 active ? 'bg-gray-100' : '',
                                                 'block px-4 py-2 text-sm text-gray-700',
                                             ]"
-                                            >Logout</a
-                                        >
+                                        >Logout</Link>
                                     </MenuItem>
                                 </MenuItems>
                             </transition>

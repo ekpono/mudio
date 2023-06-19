@@ -1,31 +1,27 @@
 <script setup>
-import { Head, Link, usePage } from "@inertiajs/vue3";
-import {onMounted, reactive, ref} from "vue";
+import { Head, Link } from "@inertiajs/vue3";
+import { ref } from "vue";
 import InfiniteLoading from "v3-infinite-loading"
 import "v3-infinite-loading/lib/style.css"
-import ModalCreateVideo from "@/Components/Media/ModalCreateVideo.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
+
 import DashboardLayout from "@/Layouts/DashboardLayout.vue";
-import NotificationAlert from "@/Components/NotificationAlert.vue";
 import Greetings from "@/Components/Greetings.vue";
-import MediaSummary from "@/Components/Media/MediaSummary.vue";
 import axios from "axios";
-const mediaSummary = usePage().props.summary;
-// const media = usePage().props.media.data
 const media = ref([])
 const page = ref(1);
 const isLoading = ref(false)
 
 const getMedia = async ($state) => {
     isLoading.value = true;
+    let queryParam = route().params.q ?? ''
     try {
-        const response = await axios.get(`/files?page=${page.value}`)
+        const response = await axios.get(`/files?query=${queryParam}&page=${page.value}`)
         const json = await response.data.media
+        console.log(json)
         isLoading.value = false
         if (json.length < 1) $state.complete()
         else {
             media.value.push(...json)
-            console.log(media)
             $state.loaded()
         }
         page.value++
@@ -36,21 +32,6 @@ const getMedia = async ($state) => {
 }
 const showAlert = ref(false);
 
-const onCreateSuccess = () => {
-    toggleAlert();
-    toggleCreateModal();
-};
-
-// Create Video Modal
-const openCreateModal = ref(false);
-
-const toggleAlert = () => {
-    showAlert.value = !showAlert.value;
-};
-
-const toggleCreateModal = () => {
-    openCreateModal.value = !openCreateModal.value;
-};
 </script>
 <template>
     <Head title="Dashboard" />
@@ -80,21 +61,10 @@ const toggleCreateModal = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
-                        <PrimaryButton @click="toggleCreateModal">
-                            Upload Media
-                        </PrimaryButton>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="mt-8">
-            <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <h2 class="text-lg font-medium leading-6 text-gray-900">
-                    Overview
-                </h2>
-                <MediaSummary :mediaSummary="mediaSummary" />
-            </div>
             <h2
                 class="mx-auto mt-8 max-w-6xl px-4 text-lg font-medium leading-6 text-gray-900 sm:px-6 lg:px-8 mb-4"
             >
@@ -102,10 +72,6 @@ const toggleCreateModal = () => {
             </h2>
             <!-- Activity list (smallest breakpoint only) -->
             <div class="px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
-                <NotificationAlert
-                    v-if="showAlert"
-                    :title="'Successfully uploaded'"
-                />
                 <ul
                     v-if="media.length > 0"
                     role="list"
@@ -123,7 +89,7 @@ const toggleCreateModal = () => {
                                 <img
                                     alt=""
                                     style="background-color: transparent"
-                                    class="rounded-xl w-[30rem] h-[12rem]"
+                                    class="object-cover rounded-xl w-[30rem] h-[12rem]"
                                     :src="file.poster"
                                 />
                             </div>
@@ -159,7 +125,7 @@ const toggleCreateModal = () => {
         </div>
         <InfiniteLoading @infinite="getMedia">
             <template #spinner>
-<!--                <span><Loading :loading="true" /></span>-->
+                <!--                <span><Loading :loading="true" /></span>-->
                 <div>Loading</div>
             </template>
             <template #complete>
@@ -167,10 +133,5 @@ const toggleCreateModal = () => {
             </template>
         </InfiniteLoading>
     </DashboardLayout>
-    <ModalCreateVideo
-        :toggle-create-modal="openCreateModal"
-        @close:modal="toggleCreateModal"
-        @upload:success="onCreateSuccess"
-    />
 </template>
 

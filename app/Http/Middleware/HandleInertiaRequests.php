@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Country;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -39,6 +41,12 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
+            'preferred_location' => auth()->check() ? function() {
+                $settings = Settings::where('user_id', auth()->id())
+                    ->where('key', 'preferred_location')
+                    ->first();
+                return  Country::find($settings?->value);
+            } : ''
         ]);
     }
 }

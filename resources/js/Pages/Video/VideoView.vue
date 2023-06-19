@@ -11,11 +11,9 @@ import axios from "axios";
 import { HandThumbDownIcon, HandThumbUpIcon} from "@heroicons/vue/20/solid";
 import { HandThumbUpIcon as OutlineHandThumbUpIcon, HandThumbDownIcon as OutlineHandThumbDownIcon } from "@heroicons/vue/24/outline";
 import FlagAndReport from "@/Components/Media/FlagAndReport.vue";
-
 const media = ref(usePage().props.media.data);
 const liked = ref(media.value.is_liked);
 const disliked = ref(media.value.is_disliked)
-
 const mostViewed = ref(usePage().props.most_viewed.data);
 const comments = ref([]);
 const isCommentLoading = ref(false);
@@ -186,7 +184,7 @@ const sendDislikeRequest = () => {
                                         </template>
                                     </InfiniteLoading>
                                 </div>
-
+                                </div>
 
                                 <!-- Right column -->
                                 <div class="grid grid-cols-1 gap-4">
@@ -230,7 +228,6 @@ const sendDislikeRequest = () => {
                                     </section>
                                 </div>
                             </div>
-                        </div>
                     </main>
                 </div>
             </div>

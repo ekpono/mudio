@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Services;
+
+use App\Models\Media;
+use App\Models\MediaView;
+
+class MediaViewService
+{
+    public static function updateViews(Media $media)
+    {
+        $views = MediaView::updateOrcreate(
+            ['media_id' => $media->id, 'user_id' => auth()->id()],
+            [
+                'headers' => json_encode([request()->headers->all()]),
+                'ip_address' => request()->ip(),
+            ]);
+        $views->increment('visits');
+    }
+}

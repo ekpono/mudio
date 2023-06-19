@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'ip' => $request->ip(),
-            'state_id' => $this->getStateViaIp($request->ip())
+            'state_id' => $this->getStateViaIp(),
         ]);
 
         event(new Registered($user));
@@ -54,13 +54,11 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
-    public function getStateViaIp($ip)
+    public function getStateViaIp()
     {
-        $location = GeoIP::getLocation($ip);
+        $location = GeoIP::getLocation();
 
-        $country = $location->country;
         $state = State::where('name', 'LIKE', "%$location->state_name%")->first();
-
 
         return $state->id;
     }

@@ -9,6 +9,7 @@ import ModalDeleteVideo from "@/Components/Media/ModalDeleteVideo.vue";
 import ModalEditMedia from "@/Components/Media/ModalEditMedia.vue";
 import MediaSummary from "@/Components/Media/MediaSummary.vue";
 import InfiniteLoading from "v3-infinite-loading"
+import ModalCreateVideo from "@/Components/Media/ModalCreateVideo.vue";
 import "v3-infinite-loading/lib/style.css"
 import axios from "axios";
 const mediaSummary = usePage().props.summary
@@ -19,10 +20,14 @@ const showDeleteConfirmation = ref(false)
 const showEditModal = ref(false)
 const isLoading = ref(false)
 const page = ref(1)
+// Create Video Modal
+const openCreateModal = ref(false);
+
 const getMedia = async ($state) => {
     isLoading.value = true;
     try {
-        const response = await axios.get(`/personal/files?page=${page.value}`)
+        let queryParam = route().params.q ?? ''
+        const response = await axios.get(`/personal/files?query=${queryParam}&page=${page.value}`)
         const json = await response.data.media
         isLoading.value = false
         if (json.length < 1) $state.complete()
@@ -62,6 +67,19 @@ const activateEditModal = (file) => {
 const editSuccess = () => {
     toggleEditModal()
 }
+
+const onCreateSuccess = () => {
+    toggleAlert();
+    toggleCreateModal();
+};
+
+const toggleAlert = () => {
+    showAlert.value = !showAlert.value;
+};
+
+const toggleCreateModal = () => {
+    openCreateModal.value = !openCreateModal.value;
+};
 </script>
 <template>
     <Head title="Uploads" />
@@ -69,9 +87,17 @@ const editSuccess = () => {
         <!-- Page header -->
         <div class="mt-8">
             <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                <h2 class="text-lg font-medium leading-6 text-gray-900">
-                    My Uploads
-                </h2>
+                <div class="flex justify-between mb-5">
+                    <h2 class="text-lg font-medium leading-6 text-gray-900">
+                        My Uploads
+                    </h2>
+                    <div class="mt-6 flex space-x-3 md:mt-0 md:ml-4">
+                        <PrimaryButton @click="toggleCreateModal()">
+                            Upload Media
+                        </PrimaryButton>
+                    </div>
+                </div>
+
                 <MediaSummary :mediaSummary="usePage().props.summary" />
             </div>
             <h2
@@ -95,14 +121,14 @@ const editSuccess = () => {
                         :key="file.email"
                         class="col-span-1 divide-gray-200 rounded-lg bg-white cursor-pointer motion-safe:hover:scale-[1.03]"
                     >
-                        <Link :href="`/video/${file.id}`">
+                        <Link :href="`/watch/${file.id}`">
                             <div
                                 class="flex w-full items-center justify-between space-x-6"
                             >
                                 <img
                                     alt=""
                                     style="background-color: transparent"
-                                    class="rounded-xl w-[30rem] h-[12rem]"
+                                    class="object-cover rounded-xl w-[30rem] h-[12rem]"
                                     :src="file.poster"
                                 />
                             </div>
@@ -163,5 +189,10 @@ const editSuccess = () => {
             />
         </div>
     </DashboardLayout>
+    <ModalCreateVideo
+        :toggle-create-modal="openCreateModal"
+        @close:modal="toggleCreateModal"
+        @upload:success="onCreateSuccess"
+    />
 
 </template>

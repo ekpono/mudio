@@ -17,8 +17,7 @@ class Media extends Model
 
     protected $fillable = [
         'user_id', 'file_name', 'title', 'description', 'uploaded_from_ip', 'file_type', 'path',
-        'extension', 'poster', 'source', 'visibility', 'response', 'updated_by', 'deleted_by',
-        'comments_enabled'
+        'comments_enabled', 'extension', 'poster', 'source', 'visibility', 'response', 'updated_by', 'deleted_by', 'state', 'country', 'continent'
     ];
 
     public function user()
@@ -29,7 +28,7 @@ class Media extends Model
     protected function path(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => config('app.asset_url').'/storage/app/'.$value
+            get: fn (string $value) => config('app.asset_url') . '/storage/app/'.$value
         );
     }
 

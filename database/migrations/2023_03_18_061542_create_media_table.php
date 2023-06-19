@@ -31,6 +31,9 @@ return new class extends Migration
             $table->text('response')->nullable()->comment('If external service is used, the entire response that comes back is stored here');
             $table->foreignId('updated_by')->nullable();
             $table->foreignId('deleted_by')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
+            $table->string('continent')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
