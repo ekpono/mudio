@@ -204,7 +204,7 @@ const sendDislikeRequest = () => {
                                                     <div class="lg:w-2/4 ">
                                                         <Link :href="`${media.id}`">
 
-                                                            <img
+                                                   /         <img
                                                                 class="object-cover h-full max-w-full max-h-full w-[10rem] rounded-lg"
                                                                 style="height: 6rem!important; width: 10rem!important;"
                                                                 :src="media.poster"
