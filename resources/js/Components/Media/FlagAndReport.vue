@@ -12,7 +12,7 @@
                 <MenuItems class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div class="py-1 flex items-center justify-center">
                         <MenuItem v-slot="{ active }">
-                            <a @click.prevent="open = ! open" href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-7 py-2 text-sm flex items-center']">
+                            <a @click.prevent="openReport" href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-7 py-2 text-sm flex items-center']">
                                 <FlagIcon class="w-5 h-5 mr-2" />
                                 <div>Report</div>
                             </a>
@@ -74,6 +74,11 @@
             </TransitionRoot>
         </div>
     </div>
+    <Alert
+        :show="showAuthModal"
+        :title="unauthTitle"
+        :description="unauthDescription"
+    />
 </template>
 
 <script setup>
@@ -90,12 +95,31 @@ const props = defineProps(['media'])
 const additionalInfo = ref('')
 const selectedOption = ref('')
 const isLoading = ref(false)
+import Alert from "@/Components/Notifications/Alert.vue";
+import {usePage} from "@inertiajs/vue3";
 
+const isAuthenticated = !! usePage().props.auth.user;
+
+const unauthTitle = ref('');
+const unauthDescription = ref('')
+const showAuthModal = ref(false)
+
+
+const openReport = () => {
+    if (! isAuthenticated ) {
+        unauthTitle.value = 'Need to report the video?'
+        unauthDescription.value = 'Sign in to report inappropriate content.'
+        showAuthModal.value = true
+        return;
+    }
+    open.value = ! open.value
+}
 const updateSelectedOption = (optionId) => {
     selectedOption.value = optionId;
 }
 
 const getFlagTypes = () => {
+    if (! isAuthenticated ) return;
     axios.get('/media/flag/types/').then(res => {
         reportTypes.value = res.data.data
     })

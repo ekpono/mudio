@@ -9,13 +9,8 @@ use Inertia\Response;
 
 class GuestController extends Controller
 {
-    public function __invoke(): Response
+    public function __invoke()
     {
-        return Inertia::render('Welcome', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION,
-        ]);
+        return redirect(route('home'));
     }
 }

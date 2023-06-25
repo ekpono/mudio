@@ -11,6 +11,7 @@ import axios from "axios";
 import { HandThumbDownIcon, HandThumbUpIcon} from "@heroicons/vue/20/solid";
 import { HandThumbUpIcon as OutlineHandThumbUpIcon, HandThumbDownIcon as OutlineHandThumbDownIcon } from "@heroicons/vue/24/outline";
 import FlagAndReport from "@/Components/Media/FlagAndReport.vue";
+import Alert from "@/Components/Notifications/Alert.vue";
 
 const media = ref(usePage().props.media.data);
 const liked = ref(media.value.is_liked);
@@ -19,6 +20,13 @@ const disliked = ref(media.value.is_disliked)
 const mostViewed = ref(usePage().props.most_viewed.data);
 const comments = ref([]);
 const isCommentLoading = ref(false);
+
+const isAuthenticated = !! usePage().props.auth.user;
+
+const unauthTitle = ref('');
+const unauthDescription = ref('')
+const showAuthModal = ref(false)
+
 
 const addNewcomment = (comment) => {
     comments.value.unshift(comment)
@@ -50,6 +58,12 @@ const deleteComment = (comment) => {
 }
 
 const toggleLike = () => {
+    if (! isAuthenticated ) {
+        unauthTitle.value = 'Like this video?'
+        unauthDescription.value = 'Sign in to make your opinion count.'
+        showAuthModal.value = true
+        return;
+    }
     if (liked.value) {
         liked.value = false;
         sendLikeRequest();
@@ -61,6 +75,12 @@ const toggleLike = () => {
 };
 
 const toggleDislike = () => {
+    if (! isAuthenticated ) {
+        unauthTitle.value = 'Don\'t like this video?'
+        unauthDescription.value = 'Sign in to make your opinion count.'
+        showAuthModal.value = true
+        return;
+    }
     if (disliked.value) {
         disliked.value = false;
         liked.value = false;
@@ -204,7 +224,7 @@ const sendDislikeRequest = () => {
                                                     <div class="lg:w-2/4 ">
                                                         <Link :href="`${media.id}`">
 
-                                                   /         <img
+                                                            <img
                                                                 class="object-cover h-full max-w-full max-h-full w-[10rem] rounded-lg"
                                                                 style="height: 6rem!important; width: 10rem!important;"
                                                                 :src="media.poster"
@@ -235,6 +255,11 @@ const sendDislikeRequest = () => {
                 </div>
             </div>
         </div>
+        <Alert
+            :show="showAuthModal"
+            :title="unauthTitle"
+            :description="unauthDescription"
+        />
     </DashboardLayout>
 </template>
 <style scoped>

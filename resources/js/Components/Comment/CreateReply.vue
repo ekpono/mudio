@@ -19,12 +19,19 @@
             <button type="submit" :class="[ isCommentTyping ? 'bg-indigo-600' : 'bg-indigo-200', 'inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' ]">Reply</button>
         </div>
     </form>
+    <Alert
+        :show="showAuthModal"
+        :title="unauthTitle"
+        :description="unauthDescription"
+    />
 </template>
 
 <script setup>
 import { ref, defineProps, defineEmits } from 'vue';
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import axios from "axios";
+import {usePage} from "@inertiajs/vue3";
+import Alert from "@/Components/Notifications/Alert.vue";
 const isCommentTyping = ref(false);
 const content = ref('');
 const adjustTextareaHeight = () => {
@@ -37,7 +44,20 @@ const adjustTextareaHeight = () => {
 const props = defineProps(['comment']);
 const emit = defineEmits(['comment:added'])
 
+const isAuthenticated = !! usePage().props.auth.user;
+
+const unauthTitle = ref('');
+const unauthDescription = ref('')
+const showAuthModal = ref(false)
+
+
 const submitReply = () => {
+    if (! isAuthenticated ) {
+        unauthTitle.value = 'Want to reply?'
+        unauthDescription.value = 'Sign in to share your opinion.'
+        showAuthModal.value = true
+        return;
+    }
     axios.post(`/media/comments/${props.comment.id}/reply`, {'content': content.value}).then(res => {
         emit('reply:added', res.data.data);
         content.value = '';

@@ -1,6 +1,7 @@
 <template>
-    <form  @submit.prevent="submitComment">
-        <div>
+    <div>
+        <form  @submit.prevent="submitComment">
+            <div>
         <textarea
             @keyup="adjustTextareaHeight"
             v-model="content"
@@ -11,15 +12,21 @@
             class="block mb-5 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             placeholder="Add a comment..."
         ></textarea>
-        </div>
-        <div class="mt-2 flex justify-end">
-            <SecondaryButton
-                class="mr-3"
-            >Cancel</SecondaryButton
-            >
-            <button type="submit" :class="[ isCommentTyping ? 'bg-indigo-600' : 'bg-indigo-200', 'inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' ]">Comment</button>
-        </div>
-    </form>
+            </div>
+            <div class="mt-2 flex justify-end">
+                <SecondaryButton
+                    class="mr-3"
+                >Cancel</SecondaryButton
+                >
+                <button type="submit" :class="[ isCommentTyping ? 'bg-indigo-600' : 'bg-indigo-200', 'inline-flex items-center rounded-md px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' ]">Comment</button>
+            </div>
+        </form>
+        <Alert
+            :show="showAuthModal"
+            :title="unauthTitle"
+            :description="unauthDescription"
+        />
+    </div>
 </template>
 
 <script setup>
@@ -27,6 +34,8 @@ import { ref, defineProps, defineEmits } from 'vue';
 const comment = ref()
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import axios from "axios";
+import {usePage} from "@inertiajs/vue3";
+import Alert from "@/Components/Notifications/Alert.vue";
 const isCommentTyping = ref(false);
 const content = ref('');
 
@@ -42,7 +51,20 @@ const props = defineProps(['media']);
 const emit = defineEmits(['comment:added'])
 const media = props.media;
 
+const isAuthenticated = !! usePage().props.auth.user;
+
+const unauthTitle = ref('');
+const unauthDescription = ref('')
+const showAuthModal = ref(false)
+
 const submitComment = () => {
+    if (! isAuthenticated ) {
+        unauthTitle.value = 'Want to comment?'
+        unauthDescription.value = 'Sign in to share your opinion.'
+        showAuthModal.value = true
+        return;
+    }
+
     axios.post(`/media/${media.id}/comments`, {'content': content.value}).then(res => {
         console.log(res.data)
         emit('comment:added', res.data.data);

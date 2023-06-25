@@ -23,29 +23,28 @@ use App\Http\Controllers\FlagTypeController;
 |
 */
 
+Route::get('/home', DashboardController::class)->name('home');
+Route::get('/watch/{media}', [DashboardController::class, 'show']);
+Route::get('files', [MediaController::class, 'index']);
+Route::get('/{media}/comments', [MediaCommentController::class, 'index']);
+Route::get('/media/comments/{comment}/reply', [CommentReplyController::class, 'index']);
 Route::get('/', GuestController::class)->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/home', DashboardController::class)->name('home');
     Route::get('/uploads', [DashboardController::class, 'uploads'])->name('my.uploads');
-    Route::get('/watch/{media}', [DashboardController::class, 'show']);
-    //API
 
     //Media
     Route::get('personal/files', [MediaController::class, 'myUploads']);
-    Route::get('files', [MediaController::class, 'index']);
     Route::post('file', [MediaController::class, 'store']);
     Route::patch('file/{media}', [MediaController::class, 'update']);
     Route::delete('file/{media}', [MediaController::class, 'delete']);
 
     // Comments
-    Route::get('/{media}/comments', [MediaCommentController::class, 'index']);
     Route::post('/media/{media}/comments/enable', [MediaCommentController::class, 'enableComments']);
     Route::post('/media/{media}/comments/disable', [MediaCommentController::class, 'disableComments']);
     Route::post('/media/{media}/comments', [MediaCommentController::class, 'store']);
     Route::delete('/media/comments/{comment}', [MediaCommentController::class, 'destroy']);
     Route::post('/media/comments/{comment}/reply', [CommentReplyController::class, 'store']);
-    Route::get('/media/comments/{comment}/reply', [CommentReplyController::class, 'index']);
 
     //Likes and dislikes
     Route::post('/media/{media}/like', [MediaLikeDislikeController::class, 'toggleLike']);

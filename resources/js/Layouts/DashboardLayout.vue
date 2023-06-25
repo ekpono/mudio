@@ -4,7 +4,7 @@ import {
     MagnifyingGlassIcon,
     FolderIcon
 } from "@heroicons/vue/20/solid";
-import { Link } from '@inertiajs/vue3';
+import {Link, usePage} from '@inertiajs/vue3';
 import { ref } from "vue";
 import {
     Dialog,
@@ -21,10 +21,15 @@ import {
     BellIcon,
     HomeIcon,
     XMarkIcon,
+    UserCircleIcon
 } from "@heroicons/vue/24/outline";
+
+const auth = !! usePage().props.auth.user;
+const searchValue = route().params.q
+// console.log(usePage())
 const navigation = [
-    { name: "Home", href: "/home", icon: HomeIcon, current: false },
-    { name: "My Media", href: "/uploads", icon: FolderIcon, current: true },
+    { name: "Home", href: "/home", icon: HomeIcon, current: false, auth: true },
+    { name: "My Media", href: "/uploads", icon: FolderIcon, current: true, auth: auth },
 ];
 let sidebarOpen = ref(false);
 </script>
@@ -115,9 +120,10 @@ let sidebarOpen = ref(false);
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div class="mt-5 flex h-0 flex-1 flex-col overflow-y-auto pt-1">
                 <!-- User account dropdown -->
-                <Menu as="div" class="relative inline-block px-3 text-left">
+                <Menu as="div" class="relative inline-block px-3 text-left" >
                     <div>
                         <MenuButton
+                            v-if="auth"
                             class="group w-full rounded-md bg-gray-100 px-3.5 py-2 text-left text-sm font-medium text-gray-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-100"
                         >
                             <span
@@ -148,11 +154,13 @@ let sidebarOpen = ref(false);
                 </Menu>
                 <!-- Navigation -->
                 <nav class="mt-6 px-3">
-                    <div class="space-y-1">
+                    <div class="space-y-1"
+                         v-for="item in navigation"
+                         :key="item.name"
+                    >
                         <Link
-                            v-for="item in navigation"
-                            :key="item.name"
                             :href="item.href"
+                            v-if="item.auth"
                             :class="[
                                 $page.url.includes(item.href)
                                     ? 'bg-gray-200 text-gray-900'
@@ -220,6 +228,7 @@ let sidebarOpen = ref(false);
                                     class="block h-full w-full border-transparent py-2 pl-8 pr-3 text-gray-900 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
                                     placeholder="Search media files"
                                     type="search"
+                                    v-model="searchValue"
                                 />
                             </div>
                         </form>
@@ -230,11 +239,18 @@ let sidebarOpen = ref(false);
                             class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
                         >
                             <span class="sr-only">View notifications</span>
-                            <BellIcon class="h-6 w-6" aria-hidden="true" />
+                            <div>
+                                <BellIcon class="h-6 w-6" aria-hidden="true" v-if="auth" />
+                                <div v-else class="mt-3 flex items-center border p-2 border-indigo-600 rounded-full">
+                                    <UserCircleIcon class="h-6 w-6 text-indigo-600 mr-1" aria-hidden="true" />
+                                    <Link :href="route('login')" type="button" class="rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 ">Sign In</Link>
+                                </div>
+                            </div>
+
                         </button>
                         <!-- Profile dropdown -->
                         <Menu as="div" class="relative ml-3">
-                            <div>
+                            <div v-if="auth">
                                 <MenuButton
                                     class="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 lg:rounded-md lg:p-2 lg:hover:bg-gray-50"
                                 >
