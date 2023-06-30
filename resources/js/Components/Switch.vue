@@ -64,9 +64,9 @@
 import { ref, watch, defineEmits } from "vue";
 import { Switch } from "@headlessui/vue";
 const emit = defineEmits(['update:visibility'])
-const props = defineProps({media: Object})
+const props = defineProps({media: Object, toggleState: Boolean})
 
-const enabled = ref( props.media ? props.media.visibility === 'public' : false)
+const enabled = ref(props.toggleState)
 
 watch(enabled, (newVal, oldVal) => {
     emit('update:visibility', newVal)
