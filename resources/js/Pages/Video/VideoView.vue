@@ -128,7 +128,7 @@ const sendDislikeRequest = () => {
                         <div class="mx-auto">
                             <h1 class="sr-only">Page title</h1>
                             <!-- Main 3 column grid -->
-                            <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
+                            <div class="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8 min-h-screen">
                                 <!-- Left column -->
                                 <div class="grid grid-cols-1 gap-4 lg:col-span-2"
                                 >
@@ -193,8 +193,13 @@ const sendDislikeRequest = () => {
                                         </div>
 
                                     </section>
-                                    <create-comment :media="media" @comment:added="addNewcomment" />
-                                    <view-comment :media="media" :comments="comments" @delete:comment="deleteComment" />
+                                    <div v-if="media.comments_enabled">
+                                        <create-comment :media="media" @comment:added="addNewcomment" />
+                                        <view-comment :media="media" :comments="comments" @delete:comment="deleteComment" />
+                                    </div>
+                                    <div v-else>
+                                        <p class="italic">Comments are turned off</p>
+                                    </div>
 
                                     <InfiniteLoading @infinite="getComments">
                                         <template #spinner>

@@ -45,7 +45,8 @@ class LocalDiskUpload
             'uploaded_from_ip' => request()->ip(),
             'state' => $state,
             'country' => $country,
-            'continent' => $continent
+            'continent' => $continent,
+            'comments_enabled' => $payload['comments_enabled'] === "true" ? 1 : 0
         ]);
 
         $filePath = $media->path;

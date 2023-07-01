@@ -9,6 +9,7 @@ use App\Http\Controllers\MediaCommentController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaLikeDislikeController;
 use App\Http\Controllers\FlagTypeController;
@@ -60,6 +61,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     //Settings
     Route::post('settings', [SettingsController::class, 'store'])->name('settings.store');
+
+    //Tags
+    Route::get('tags', [TagController::class, 'index']);
 });
 
 Route::middleware('auth')->group(function () {

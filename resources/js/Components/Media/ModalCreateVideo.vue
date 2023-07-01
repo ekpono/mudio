@@ -8,7 +8,7 @@
                         <label
                             for="company-website"
                             class="block text-sm font-medium leading-6 text-gray-900"
-                            >Title</label
+                        >Title</label
                         >
                         <div class="mt-2 flex rounded-md shadow-sm">
                             <input
@@ -42,7 +42,7 @@
                 </div>
                 <label
                     class="block mt-4 text-sm font-medium leading-6 text-gray-900"
-                    >Media File</label
+                >Media File</label
                 >
                 <VideoUploadForm @video-updated="updateVideo" />
                 <p class="text-red-500" v-if="errorBag.file">
@@ -65,15 +65,23 @@
                         :taggable="true"
                     />
                 </div>
-                <div class="flex items-center mt-5">
-                    Visibility<span class="text-gray-500 text-sm"> ({{form.visibility}}) </span>:
-                    <Switch class="ml-2" @update:visibility="updateVisibility"
-                    />
+                <div class="flex items-center mt-5 gap-3">
+                    <div>
+                        Visibility<span class="text-gray-500 text-sm"> ({{form.visibility}}) </span>:
+                        <Switch class="ml-2" :toggle-state="toggleVisibility" @update:visibility="updateVisibility"
+                        />
+                    </div>
+                    <div>
+                        Enable Comments:
+                        <Switch class="ml-2" :toggle-state="form.comments_enabled" @update:visibility="updateComment"
+                        />
+                    </div>
+
                 </div>
                 <div class="mt-5 space-x-3 text-right">
-                    <PrimaryButton @click="uploadFile">Save</PrimaryButton>
+                    <PrimaryButton @click="uploadFile" :disabled="isLoading">{{ isLoading ? 'Uploading - Please wait...' : 'Save'}}</PrimaryButton>
                     <SecondaryButton @click="emit('close:modal')"
-                        >Cancel</SecondaryButton
+                    >Cancel</SecondaryButton
                     >
                 </div>
             </div>
@@ -82,7 +90,7 @@
 </template>
 
 <script setup>
-import {reactive, ref} from "vue";
+import {onMounted, reactive, ref} from "vue";
 import axios from "axios";
 import Modal from "@/Components/Modal.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
@@ -100,10 +108,16 @@ const form = reactive({
     description: ref(""),
     file: ref(""),
     visibility: ref('public'),
-    tags: ref("")
+    tags: ref(""),
+    comments_enabled: ref(true)
 })
+const isLoading = ref(true);
 const errorBag = ref({});
-const taggingOptions = reactive([])
+const taggingOptions = ref([])
+const tags = ref([]);
+const toggleVisibility = ref( props.media ? props.media.visibility === 'public' : false)
+
+
 const updateVideo = (video) => {
     form.file = video;
 };
@@ -111,7 +125,13 @@ const updateVideo = (video) => {
 const updateVisibility = (value) => {
     form.visibility = value ? 'public' : 'private'
 }
+
+const updateComment = () => {
+    form.comments_enabled = ! form.comments_enabled
+}
+
 const uploadFile = () => {
+    isLoading.value = true;
     axios
         .post("/file", form, {
             headers: {
@@ -127,6 +147,16 @@ const uploadFile = () => {
                 errorBag.value = error.response.data.errors;
             }
             console.log(error);
-        });
+        })
+        .finally(() => isLoading.value = false)
 };
+
+const getTags = async () => {
+    let response = await axios.get('/tags');
+    taggingOptions.value = response.data.data;
+}
+
+onMounted(() => {
+    getTags()
+})
 </script>
