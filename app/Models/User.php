@@ -22,7 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'ip',
-        'state_id'
+        'state_id',
     ];
 
     /**
@@ -43,7 +43,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
 
     public function media(): HasMany
     {

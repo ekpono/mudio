@@ -43,7 +43,6 @@ class MediaServiceTest extends TestCase
             'value' => $preferredCountry->id,
         ]);
 
-
         $userLocation = [
             'state' => 'Some State',
             'country' => 'Some Country',
@@ -76,7 +75,7 @@ class MediaServiceTest extends TestCase
             'value' => 1,
         ]);
 
-        $response = $this->get("/files");
+        $response = $this->get('/files');
 
         $this->assertEquals(
             $media->pluck('id')->toArray(),

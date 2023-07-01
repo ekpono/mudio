@@ -12,7 +12,9 @@ class ContinentsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        if (Continent::count() > 0) return;
+        if (Continent::count() > 0) {
+            return;
+        }
         $continents = [
             ['name' => 'Africa'],
             ['name' => 'Antarctica'],

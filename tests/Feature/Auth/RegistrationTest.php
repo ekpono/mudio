@@ -4,7 +4,6 @@ namespace Tests\Feature\Auth;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase
@@ -28,7 +27,7 @@ class RegistrationTest extends TestCase
             'password' => 'password',
             'password_confirmation' => 'password',
             'ip' => '127.0.0.1',
-            'state_id' => 1
+            'state_id' => 1,
         ]);
 
         $this->assertAuthenticated();

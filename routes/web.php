@@ -3,16 +3,17 @@
 use App\Http\Controllers\CommentReplyController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\GuestController;
 use App\Http\Controllers\FlagController;
+use App\Http\Controllers\FlagTypeController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\MediaCommentController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\MediaLikeDislikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MediaLikeDislikeController;
-use App\Http\Controllers\FlagTypeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

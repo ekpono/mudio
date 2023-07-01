@@ -17,7 +17,7 @@ class MediaCommentTest extends TestCase
         $user = User::factory()->create();
         $media = Media::factory()->create(['user_id' => $user->id]);
 
-        $response = $this->actingAs($user)->post('/media/' . $media->id . '/comments', [
+        $response = $this->actingAs($user)->post('/media/'.$media->id.'/comments', [
             'content' => 'Test comment',
         ]);
 

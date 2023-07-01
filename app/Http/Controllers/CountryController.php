@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Country;
 
 class CountryController extends Controller
@@ -9,7 +10,7 @@ class CountryController extends Controller
     {
         return response()->json([
             'data' => Country::all(),
-            'message' => 'Successfully fetched'
+            'message' => 'Successfully fetched',
         ]);
     }
 }

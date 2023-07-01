@@ -36,7 +36,7 @@ class MediaTest extends TestCase
 
         $response->assertSimilarJson([
             'filename' => $file->getClientOriginalName(),
-            'path' => $response->json('path')
+            'path' => $response->json('path'),
         ]);
     }
 
@@ -48,7 +48,7 @@ class MediaTest extends TestCase
 
         $user = User::factory()->create();
 
-        $response = $this->actingAs($user)->patch('/file/' . $media->id, [
+        $response = $this->actingAs($user)->patch('/file/'.$media->id, [
             'title' => 'Updated Audio Title',
             'visibility' => 'private',
             'description' => 'Updated Audio Description',
@@ -63,7 +63,7 @@ class MediaTest extends TestCase
             'title' => 'Updated Audio Title',
             'visibility' => 'private',
             'description' => 'Updated Audio Description',
-            'comments_enabled' => "false",
+            'comments_enabled' => 'false',
         ]);
     }
 
@@ -72,11 +72,10 @@ class MediaTest extends TestCase
         $user = User::factory()->create();
         $media = Media::factory()->create(['user_id' => $user->id]);
 
-        $response = $this->actingAs($user)->delete('/file/' . $media->id);
+        $response = $this->actingAs($user)->delete('/file/'.$media->id);
 
         $response->assertStatus(202);
         // Assert the soft delete
         $this->assertSoftDeleted('media', ['id' => $media->id]);
     }
-
 }

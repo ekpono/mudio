@@ -10,7 +10,9 @@ class CountriesTableSeeder extends Seeder
 {
     public function run()
     {
-        if (Country::count() > 0) return;
+        if (Country::count() > 0) {
+            return;
+        }
         $continents = Continent::all();
 
         foreach ($continents as $continent) {

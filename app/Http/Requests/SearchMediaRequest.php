@@ -22,7 +22,7 @@ class SearchMediaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'query' => ['nullable', 'string', 'min:2']
+            'query' => ['nullable', 'string', 'min:2'],
         ];
     }
 }

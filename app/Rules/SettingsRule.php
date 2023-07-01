@@ -24,7 +24,7 @@ class SettingsRule implements DataAwareRule, ValidationRule
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if ($this->data['key'] === 'preferred_location') {
-            if (! Rule::exists('countries', 'id')){
+            if (! Rule::exists('countries', 'id')) {
                 $fail('The :attribute value is invalid.');
             }
         }

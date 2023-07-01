@@ -22,7 +22,7 @@ class TagController extends Controller
 
         return response()->json([
             'data' => $userTags,
-            'message' => 'Successfully fetched'
+            'message' => 'Successfully fetched',
         ]);
     }
 }

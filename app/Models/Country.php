@@ -11,6 +11,6 @@ class Country extends Model
 
     public function continent()
     {
-        return $this->belongsTo(Continent::class,);
+        return $this->belongsTo(Continent::class);
     }
 }
