@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Tags\HasTags;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Media extends Model
 {
@@ -17,7 +17,11 @@ class Media extends Model
 
     protected $fillable = [
         'user_id', 'file_name', 'title', 'description', 'uploaded_from_ip', 'file_type', 'path',
-        'comments_enabled', 'extension', 'poster', 'source', 'visibility', 'response', 'updated_by', 'deleted_by', 'state', 'country', 'continent'
+        'comments_enabled', 'extension', 'poster', 'source', 'visibility', 'response', 'updated_by', 'deleted_by', 'state', 'country', 'continent',
+    ];
+
+    protected $casts = [
+        'comments_enabled' => 'boolean'
     ];
 
     public function user()
@@ -28,7 +32,7 @@ class Media extends Model
     protected function path(): Attribute
     {
         return Attribute::make(
-            get: fn (string $value) => config('app.asset_url') . '/storage/app/'.$value
+            get: fn (string $value) => config('app.asset_url').'/storage/app/'.$value
         );
     }
 

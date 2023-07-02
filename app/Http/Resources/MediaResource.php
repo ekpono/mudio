@@ -33,7 +33,8 @@ class MediaResource extends JsonResource
                 ->exists(),
             'is_disliked' => $this->likesAndDislikes()->where('type', 'dislike')
                 ->where('user_id', auth()->id())
-                ->exists()
+                ->exists(),
+            'comments_enabled' => $this->comments_enabled
         ];
     }
 

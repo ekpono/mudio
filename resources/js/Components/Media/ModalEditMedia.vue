@@ -10,19 +10,23 @@ import Switch from "@/Components/Switch.vue";
 
 const props = defineProps(['toggleModal', 'media'])
 const emit = defineEmits(['close:modal', 'edit:success'])
-
 const errorBag = ref({});
 const taggingOptions = reactive([])
 
 const updateVisibility = (value) => {
     props.media.visibility = value ? 'public' : 'private'
 }
+
+const updateComment = () => {
+    props.media.comments_enabled = ! props.media.comments_enabled
+}
 const updateMedia = () => {
     const payload = {
         title: props.media.title,
         description: props.media.description,
         visibility: props.media.visibility,
-        tags: props.media.tags
+        tags: props.media.tags,
+        comments_enabled: props.media.comments_enabled
     }
     axios
         .patch(`/file/${props.media.id}`, payload)
@@ -97,12 +101,17 @@ const updateMedia = () => {
                         :taggable="true"
                     />
                 </div>
-                <div class="flex items-center mt-5">
-                    Visibility<span class="text-gray-500 text-sm"> ({{media.visibility}}) </span>:
-                    <Switch class="ml-2"
-                        @update:visibility="updateVisibility"
-                        :media="media"
-                    />
+                <div class="flex items-center mt-5 gap-3">
+                    <div>
+                        Visibility<span class="text-gray-500 text-sm"> ({{media.visibility}}) </span>:
+                        <Switch class="ml-2" :toggle-state="updateVisibility" @update:visibility="updateVisibility"
+                        />
+                    </div>
+                    <div>
+                        Enable Comments:
+                        <Switch class="ml-2" :toggle-state="media.comments_enabled" @update:visibility="updateComment"
+                        />
+                    </div>
                 </div>
                 <div class="mt-5 space-x-3 text-right">
                     <PrimaryButton @click="updateMedia">Update</PrimaryButton>

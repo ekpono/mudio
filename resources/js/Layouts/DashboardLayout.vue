@@ -292,7 +292,7 @@ let sidebarOpen = ref(false);
                                         >Your Profile</a
                                         >
                                     </MenuItem>
-                                    <MenuItem v-slot="{ active }">
+                                    <MepnuItem v-slot="{ active }">
                                         <Link
                                             :href="route('logout')"
                                             method="post"
@@ -301,7 +301,7 @@ let sidebarOpen = ref(false);
                                                 'block px-4 py-2 text-sm text-gray-700',
                                             ]"
                                         >Logout</Link>
-                                    </MenuItem>
+                                    </MepnuItem>
                                 </MenuItems>
                             </transition>
                         </Menu>
