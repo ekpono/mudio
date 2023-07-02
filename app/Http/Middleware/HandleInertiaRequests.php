@@ -41,12 +41,13 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
-            'preferred_location' => auth()->check() ? function() {
+            'preferred_location' => auth()->check() ? function () {
                 $settings = Settings::where('user_id', auth()->id())
                     ->where('key', 'preferred_location')
                     ->first();
-                return  Country::find($settings?->value);
-            } : ''
+
+                return Country::find($settings?->value);
+            } : '',
         ]);
     }
 }

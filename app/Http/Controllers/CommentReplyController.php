@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
-use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CommentReplyController extends Controller
 {
-
     public function index(Comment $comment)
     {
         $perPage = 2;
@@ -22,6 +20,7 @@ class CommentReplyController extends Controller
 
         return CommentResource::collection($comments);
     }
+
     public function store(Request $request, Comment $comment)
     {
         $request->validate([
@@ -32,7 +31,7 @@ class CommentReplyController extends Controller
             'user_id' => Auth::id(),
             'content' => $request->input('content'),
             'commentable_type' => Comment::class,
-            'commentable_id' => $comment->id
+            'commentable_id' => $comment->id,
         ]);
 
         $comment->replies()->save($reply);

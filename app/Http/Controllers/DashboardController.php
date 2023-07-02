@@ -39,7 +39,7 @@ class DashboardController extends Controller
 
         return Inertia::render('Video/VideoView', [
             'media' => MediaResource::make($media->load('user')),
-            'most_viewed' => MediaResource::collection(MediaService::computeMostViewed())
+            'most_viewed' => MediaResource::collection(MediaService::computeMostViewed()),
         ]);
     }
 }

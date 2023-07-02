@@ -15,9 +15,11 @@ class MediaLikeDislikeController extends Controller
         if ($existingLike) {
             if ($existingLike->type === 'dislike') {
                 $existingLike->update(['type' => 'like']);
+
                 return response()->json(['message' => 'Media liked successfully.']);
             } else {
                 $existingLike->delete();
+
                 return response()->json(['message' => 'Media like removed successfully.']);
             }
         }
@@ -40,9 +42,11 @@ class MediaLikeDislikeController extends Controller
         if ($existingDislike) {
             if ($existingDislike->type === 'like') {
                 $existingDislike->update(['type' => 'dislike']);
+
                 return response()->json(['message' => 'Media disliked successfully.']);
             } else {
                 $existingDislike->delete();
+
                 return response()->json(['message' => 'Media dislike removed successfully.']);
             }
         }

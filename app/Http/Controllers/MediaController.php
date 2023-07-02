@@ -19,7 +19,7 @@ class MediaController extends Controller
 
         return response()->json([
             'media' => MediaResource::collection($media->paginate(Helper::API_PER_PAGE)),
-            'message' => 'Successfully fetched'
+            'message' => 'Successfully fetched',
         ]);
     }
 
@@ -37,9 +37,10 @@ class MediaController extends Controller
 
         return response()->json([
             'media' => $media,
-            'message' => 'Successfully fetched'
+            'message' => 'Successfully fetched',
         ]);
     }
+
     public function store(MediaRequest $request, LocalDiskUpload $diskUpload)
     {
         $payload = $request->validated();

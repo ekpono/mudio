@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Resources\CommentResource;
-use App\Models\Media;
 use App\Models\Comment;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,7 @@ class MediaCommentController extends Controller
 
         return CommentResource::collection($comments);
     }
+
     public function enableComments(Media $media)
     {
         $this->authorize('update', $media);

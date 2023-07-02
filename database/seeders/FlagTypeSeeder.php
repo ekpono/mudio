@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\FlagType;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FlagTypeSeeder extends Seeder
@@ -13,7 +12,9 @@ class FlagTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        if (FlagType::count() > 0) return;
+        if (FlagType::count() > 0) {
+            return;
+        }
 
         $flagTypes = [
             'Sexual content',

@@ -27,7 +27,7 @@ class MediaRequest extends FormRequest
             'visibility' => 'required|in:public,private',
             'description' => 'required|string',
             'tags' => 'nullable|array',
-            'comments_enabled' => 'required',
+            'comments_enabled' => 'required'
         ];
 
         if ($this->getMethod() === self::METHOD_PATCH) {

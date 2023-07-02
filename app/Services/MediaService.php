@@ -28,10 +28,10 @@ class MediaService
         $orderClause = '';
 
         if ($userWatchedMedia->isNotEmpty()) {
-            $orderClause = ", CASE
-                WHEN id IN (".implode(',', $userWatchedMedia->toArray()).") THEN 1
+            $orderClause = ', CASE
+                WHEN id IN ('.implode(',', $userWatchedMedia->toArray()).') THEN 1
                 ELSE 0
-            END";
+            END';
         }
 
         $preferredLocation = Settings::where('user_id', auth()->id())
@@ -46,7 +46,7 @@ class MediaService
                     WHEN country = '{$preferredCountry->name}' THEN 1
                     WHEN continent = '{$preferredCountry->continent->name}' THEN 2
                     ELSE 3
-                END". $orderClause);
+                END".$orderClause);
         }
 
         $userLocation = GeoIP::getLocation();
@@ -57,6 +57,6 @@ class MediaService
                 WHEN country = '{$userLocation['country']}' THEN 2
                 WHEN continent = '{$userLocation['continent']}' THEN 3
                 ELSE 4
-            END". $orderClause);
+            END".$orderClause);
     }
 }
