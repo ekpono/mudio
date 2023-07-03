@@ -111,7 +111,7 @@ const form = reactive({
     tags: ref(""),
     comments_enabled: ref(true)
 })
-const isLoading = ref(true);
+const isLoading = ref(false);
 const errorBag = ref({});
 const taggingOptions = ref([])
 const tags = ref([]);
