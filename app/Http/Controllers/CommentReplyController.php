@@ -11,7 +11,7 @@ class CommentReplyController extends Controller
 {
     public function index(Comment $comment)
     {
-        $perPage = 2;
+        $perPage = 20;
 
         $comments = Comment::with('user')->where('commentable_type', Comment::class)
             ->where('parent_id', $comment->id)

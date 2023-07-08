@@ -42,8 +42,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('file/{media}', [MediaController::class, 'delete']);
 
     // Comments
-    Route::post('/media/{media}/comments/enable', [MediaCommentController::class, 'enableComments']);
-    Route::post('/media/{media}/comments/disable', [MediaCommentController::class, 'disableComments']);
     Route::post('/media/{media}/comments', [MediaCommentController::class, 'store']);
     Route::delete('/media/comments/{comment}', [MediaCommentController::class, 'destroy']);
     Route::post('/media/comments/{comment}/reply', [CommentReplyController::class, 'store']);

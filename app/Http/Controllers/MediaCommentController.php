@@ -22,24 +22,6 @@ class MediaCommentController extends Controller
         return CommentResource::collection($comments);
     }
 
-    public function enableComments(Media $media)
-    {
-        $this->authorize('update', $media);
-
-        $media->update(['comments_enabled' => true]);
-
-        return response()->json(['message' => 'Comments enabled for the media.']);
-    }
-
-    public function disableComments(Media $media)
-    {
-        $this->authorize('update', $media);
-
-        $media->update(['comments_enabled' => false]);
-
-        return response()->json(['message' => 'Comments disabled for the media.']);
-    }
-
     public function store(Request $request, Media $media)
     {
         $request->validate([
