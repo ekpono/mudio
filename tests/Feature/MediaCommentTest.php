@@ -22,7 +22,7 @@ class MediaCommentTest extends TestCase
         ]);
 
         $response->assertStatus(201);
-        // Assert the comment in the database
+
         $this->assertDatabaseHas('comments', [
             'commentable_type' => Media::class,
             'commentable_id' => $media->id,
@@ -54,17 +54,14 @@ class MediaCommentTest extends TestCase
 
     public function testDeleteComment()
     {
-        // Create a comment using the factory
         $comment = Comment::factory()->create();
 
         $user = User::factory()->create();
-        // Send a DELETE request to the comment deletion route
+
         $response = $this->actingAs($user)->delete("/media/comments/{$comment->id}");
 
-        // Assert the response status code
         $response->assertStatus(200);
 
-        // Assert that the comment no longer exists in the database
         $response->assertDontSee('comments', [
             'id' => $comment->id,
         ]);
