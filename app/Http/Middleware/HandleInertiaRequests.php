@@ -32,14 +32,17 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        return array_merge(parent::share($request), [
+        return array_merge(
+            parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
             ],
             'ziggy' => function () use ($request) {
-                return array_merge((new Ziggy)->toArray(), [
+                return array_merge(
+                    (new Ziggy)->toArray(), [
                     'location' => $request->url(),
-                ]);
+                    ]
+                );
             },
             'preferred_location' => auth()->check() ? function () {
                 $settings = Settings::where('user_id', auth()->id())
@@ -48,6 +51,7 @@ class HandleInertiaRequests extends Middleware
 
                 return Country::find($settings?->value);
             } : '',
-        ]);
+            ]
+        );
     }
 }

@@ -19,10 +19,12 @@ class MediaService
     public static function getMediaQuery($query)
     {
         $mediaQuery = Media::query()->public()
-            ->where(function ($q) use ($query) {
-                $q->where('title', 'like', '%'.$query.'%')
-                    ->orWhere('description', 'like', '%'.$query.'%');
-            });
+            ->where(
+                function ($q) use ($query) {
+                    $q->where('title', 'like', '%'.$query.'%')
+                        ->orWhere('description', 'like', '%'.$query.'%');
+                }
+            );
 
         $userWatchedMedia = MediaView::where('user_id', auth()->id())->pluck('media_id');
         $orderClause = '';
@@ -41,22 +43,26 @@ class MediaService
         if ($preferredLocation) {
             $preferredCountry = Country::with('continent')->where('id', $preferredLocation->id)->first();
 
-            return $mediaQuery->orderByRaw("
+            return $mediaQuery->orderByRaw(
+                "
                 CASE
                     WHEN country = '{$preferredCountry->name}' THEN 1
                     WHEN continent = '{$preferredCountry->continent->name}' THEN 2
                     ELSE 3
-                END".$orderClause);
+                END".$orderClause
+            );
         }
 
         $userLocation = GeoIP::getLocation();
 
-        return $mediaQuery->orderByRaw("
+        return $mediaQuery->orderByRaw(
+            "
             CASE
                 WHEN state = '{$userLocation['state']}' THEN 1
                 WHEN country = '{$userLocation['country']}' THEN 2
                 WHEN continent = '{$userLocation['continent']}' THEN 3
                 ELSE 4
-            END".$orderClause);
+            END".$orderClause
+        );
     }
 }

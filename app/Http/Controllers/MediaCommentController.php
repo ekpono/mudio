@@ -24,14 +24,18 @@ class MediaCommentController extends Controller
 
     public function store(Request $request, Media $media)
     {
-        $request->validate([
+        $request->validate(
+            [
             'content' => 'required|string',
-        ]);
+            ]
+        );
 
-        $comment = new Comment([
+        $comment = new Comment(
+            [
             'user_id' => Auth::id(),
             'content' => $request->input('content'),
-        ]);
+            ]
+        );
 
         $media->comments()->save($comment);
 

@@ -11,11 +11,13 @@ class FlagController extends Controller
     {
         $user = $request->user();
 
-        $flag = $media->flags()->create([
+        $flag = $media->flags()->create(
+            [
             'user_id' => $user->id,
             'flag_id' => $request->input('flag_id'),
             'reason' => $request->input('reason'),
-        ]);
+            ]
+        );
 
         return response()->json(['message' => 'Media flagged successfully.', 'flag' => $flag], 201);
     }

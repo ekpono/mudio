@@ -8,9 +8,11 @@ class CountryController extends Controller
 {
     public function index()
     {
-        return response()->json([
+        return response()->json(
+            [
             'data' => Country::all(),
             'message' => 'Successfully fetched',
-        ]);
+            ]
+        );
     }
 }

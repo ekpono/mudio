@@ -40,9 +40,11 @@ class MediaResource extends JsonResource
 
     public function cleanUpTags($tags)
     {
-        return collect($tags)->map(function ($item) {
-            return $item['name'];
-        })->toArray();
+        return collect($tags)->map(
+            function ($item) {
+                return $item['name'];
+            }
+        )->toArray();
     }
 
     private function computeVisits()

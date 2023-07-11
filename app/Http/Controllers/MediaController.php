@@ -17,28 +17,36 @@ class MediaController extends Controller
     {
         $media = MediaService::getMediaQuery($request->query('query'));
 
-        return response()->json([
+        return response()->json(
+            [
             'media' => MediaResource::collection($media->paginate(Helper::API_PER_PAGE)),
             'message' => 'Successfully fetched',
-        ]);
+            ]
+        );
     }
 
     public function myUploads(SearchMediaRequest $request)
     {
         $query = $request->query('query');
-        $media = MediaResource::collection(Media::with(['tags' => function ($query) {
-            $query->select('name');
-        }])
+        $media = MediaResource::collection(
+            Media::with(
+                ['tags' => function ($query) {
+                    $query->select('name');
+                }]
+            )
             ->where('title', 'like', '%'.$query.'%')
             ->orWhere('description', 'like', '%'.$query.'%')
             ->where('user_id', auth()->id())
             ->latest()
-            ->paginate(Helper::API_PER_PAGE));
+            ->paginate(Helper::API_PER_PAGE)
+        );
 
-        return response()->json([
+        return response()->json(
+            [
             'media' => $media,
             'message' => 'Successfully fetched',
-        ]);
+            ]
+        );
     }
 
     public function store(MediaRequest $request, LocalDiskUpload $diskUpload)
@@ -56,10 +64,12 @@ class MediaController extends Controller
         $data['updated_by'] = $request->user()->id;
         $media->update($data);
 
-        return response()->json([
+        return response()->json(
+            [
             'data' => $media,
             'message' => 'Successfully fetched',
-        ]);
+            ]
+        );
     }
 
     public function delete(Request $request, Media $media)
@@ -67,13 +77,17 @@ class MediaController extends Controller
         $authId = $request->user()->id;
 
         abort_if($media->user_id !== $authId, 401, 'Unauthorized');
-        $media->update([
+        $media->update(
+            [
             'deleted_by' => $authId,
-        ]);
+            ]
+        );
         $media->delete();
 
-        return response()->json([
+        return response()->json(
+            [
             'message' => 'Delete successfully',
-        ], 202);
+            ], 202
+        );
     }
 }

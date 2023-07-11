@@ -20,9 +20,11 @@ class TagController extends Controller
             ->values()
             ->toArray();
 
-        return response()->json([
+        return response()->json(
+            [
             'data' => $userTags,
             'message' => 'Successfully fetched',
-        ]);
+            ]
+        );
     }
 }

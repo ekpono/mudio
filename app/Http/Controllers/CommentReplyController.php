@@ -23,16 +23,20 @@ class CommentReplyController extends Controller
 
     public function store(Request $request, Comment $comment)
     {
-        $request->validate([
+        $request->validate(
+            [
             'content' => 'required|string',
-        ]);
+            ]
+        );
 
-        $reply = new Comment([
+        $reply = new Comment(
+            [
             'user_id' => Auth::id(),
             'content' => $request->input('content'),
             'commentable_type' => Comment::class,
             'commentable_id' => $comment->id,
-        ]);
+            ]
+        );
 
         $comment->replies()->save($reply);
 

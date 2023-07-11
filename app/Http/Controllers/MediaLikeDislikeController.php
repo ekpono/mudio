@@ -24,12 +24,14 @@ class MediaLikeDislikeController extends Controller
             }
         }
 
-        $media->likesAndDislikes()->create([
+        $media->likesAndDislikes()->create(
+            [
             'user_id' => $user->id,
             'type' => 'like',
             'likeable_id' => $media->id,
             'likeable_type' => Media::class,
-        ]);
+            ]
+        );
 
         return response()->json(['message' => 'Media liked successfully.']);
     }
@@ -51,12 +53,14 @@ class MediaLikeDislikeController extends Controller
             }
         }
 
-        $media->likesAndDislikes()->create([
+        $media->likesAndDislikes()->create(
+            [
             'user_id' => $user->id,
             'type' => 'dislike',
             'likeable_id' => $media->id,
             'likeable_type' => Media::class,
-        ]);
+            ]
+        );
 
         return response()->json(['message' => 'Media disliked successfully.']);
     }

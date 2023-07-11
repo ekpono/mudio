@@ -15,9 +15,11 @@ class SettingsController extends Controller
             ['value' => $request->get('value')]
         );
 
-        return response()->json([
+        return response()->json(
+            [
             'data' => $settings,
             'message' => 'Successfully created',
-        ], Response::HTTP_CREATED);
+            ], Response::HTTP_CREATED
+        );
     }
 }

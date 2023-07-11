@@ -15,7 +15,8 @@ class MediaViewService
                 'headers' => json_encode([request()->headers->all()]),
                 'ip_address' => request()->ip(),
                 'is_auth' => auth()->check(),
-            ]);
+            ]
+        );
         $views->increment('visits');
     }
 }

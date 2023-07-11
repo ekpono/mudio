@@ -31,7 +31,8 @@ class LocalDiskUpload
         $filename = $file->getClientOriginalName();
         [$state, $country, $continent] = $this->getGeoInformation();
 
-        $media = Media::create([
+        $media = Media::create(
+            [
             'title' => $title,
             'file_name' => $filename,
             'path' => $filePathName,
@@ -47,7 +48,8 @@ class LocalDiskUpload
             'country' => $country,
             'continent' => $continent,
             'comments_enabled' => $payload['comments_enabled'] === 'true' ? 1 : 0,
-        ]);
+            ]
+        );
 
         $filePath = $media->path;
 
@@ -90,12 +92,14 @@ class LocalDiskUpload
 
     private function createVideoThumbnail($videoPath, $thumbnailPath)
     {
-        $ffmpeg = FFMpeg::create([
+        $ffmpeg = FFMpeg::create(
+            [
             'ffmpeg.binaries' => config('ffmpeg.ffmpeg_binaries'),
             'ffprobe.binaries' => config('ffmpeg.ffprobe_binaries'),
             'timeout' => config('ffmpeg.timeout'),
             'ffmpeg.threads' => config('ffmpeg.ffmpeg.threads'),
-        ]);
+            ]
+        );
         $video = $ffmpeg->open($videoPath);
         $frame = $video->frame(TimeCode::fromSeconds(1));
         $frame->save(storage_path($thumbnailPath));
