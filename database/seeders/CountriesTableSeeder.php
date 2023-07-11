@@ -18,7 +18,7 @@ class CountriesTableSeeder extends Seeder
         foreach ($continents as $continent) {
             $data = $this->getCountriesForContinent($continent->name);
             foreach ($data as $countryName) {
-                $country = new Country;
+                $country = new Country();
                 $country->name = $countryName;
                 $country->continent_id = $continent->id;
                 $country->save();

@@ -87,7 +87,8 @@ class MediaController extends Controller
         return response()->json(
             [
             'message' => 'Delete successfully',
-            ], 202
+            ],
+            202
         );
     }
 }

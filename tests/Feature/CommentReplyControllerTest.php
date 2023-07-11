@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 

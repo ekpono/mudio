@@ -4,5 +4,5 @@ namespace App\Helpers;
 
 class Helper
 {
-    const API_PER_PAGE = 10;
+    public const API_PER_PAGE = 10;
 }

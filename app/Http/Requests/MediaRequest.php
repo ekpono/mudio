@@ -35,7 +35,8 @@ class MediaRequest extends FormRequest
         }
 
         return array_merge(
-            $rules, [
+            $rules,
+            [
             'file' => 'required|mimetypes:audio/mp3,audio/mpeg,video/mp4,video/x-msvideo|max:50000',
             ]
         );

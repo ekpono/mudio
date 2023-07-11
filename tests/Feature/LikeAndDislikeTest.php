@@ -6,7 +6,6 @@ use App\Models\LikeAndDislike;
 use App\Models\Media;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LikeAndDislikeTest extends TestCase

@@ -21,8 +21,8 @@ class DashboardControllerTest extends TestCase
 
         $ipAddress = '127.0.0.1';
 
-         $this->actingAs($user)
-            ->get("/watch/{$media->id}");
+        $this->actingAs($user)
+           ->get("/watch/{$media->id}");
 
         $this->assertDatabaseCount('media_views', 1);
 

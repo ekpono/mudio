@@ -27,7 +27,7 @@ class SettingRequest extends FormRequest
 
         return [
             'key' => ['required', Rule::in($acceptedKeys)],
-            'value' => ['required', new SettingsRule],
+            'value' => ['required', new SettingsRule()],
         ];
     }
 }

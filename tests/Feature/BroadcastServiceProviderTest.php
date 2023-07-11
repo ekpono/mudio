@@ -4,8 +4,6 @@ namespace Tests\Feature;
 
 use App\Providers\BroadcastServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Broadcast;
 use Tests\TestCase;
 
 class BroadcastServiceProviderTest extends TestCase

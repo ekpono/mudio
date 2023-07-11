@@ -1,9 +1,7 @@
 <?php
 
-
 namespace Database\Factories;
 
-use App\Models\Flag;
 use App\Models\Media;
 use App\Models\User;
 use App\Models\FlagType;

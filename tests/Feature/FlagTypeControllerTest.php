@@ -8,7 +8,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class FlagTypeControllerTest extends TestCase
 {
     use RefreshDatabase;

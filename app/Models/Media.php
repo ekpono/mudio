@@ -13,7 +13,9 @@ use Spatie\Tags\HasTags;
 
 class Media extends Model
 {
-    use HasFactory, SoftDeletes, HasTags;
+    use HasFactory;
+    use SoftDeletes;
+    use HasTags;
 
     protected $fillable = [
         'user_id', 'file_name', 'title', 'description', 'uploaded_from_ip', 'file_type', 'path',

@@ -14,7 +14,8 @@ class DashboardController extends Controller
     public function __invoke()
     {
         return Inertia::render(
-            'Dashboard', [
+            'Dashboard',
+            [
             'summary' => [
                 ['name' => 'All Media', 'icon' => 'FolderIcon', 'amount' => Media::public()->count()],
                 ['name' => 'Video', 'icon' => 'VideoCameraIcon', 'amount' => Media::public()->video()->count()],
@@ -27,7 +28,8 @@ class DashboardController extends Controller
     public function uploads(Request $request)
     {
         return Inertia::render(
-            'Uploads', [
+            'Uploads',
+            [
             'summary' => [
                 ['name' => 'All Media', 'icon' => 'FolderIcon', 'amount' => Media::auth()->count()],
                 ['name' => 'Video', 'icon' => 'VideoCameraIcon', 'amount' => Media::auth()->video()->count()],
@@ -42,7 +44,8 @@ class DashboardController extends Controller
         MediaViewService::updateViews($media);
 
         return Inertia::render(
-            'Video/VideoView', [
+            'Video/VideoView',
+            [
             'media' => MediaResource::make($media->load('user')),
             'most_viewed' => MediaResource::collection(MediaService::computeMostViewed()),
             ]
