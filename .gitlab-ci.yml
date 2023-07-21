@@ -1,0 +1,21 @@
+stages:
+  - test
+
+variables:
+  PHP_VERSION: "8.1"
+
+test:
+  image: php:${PHP_VERSION}-fpm
+  stage: test
+  script:
+    - cp .env.example .env
+    - composer install --no-interaction
+    - php artisan key:generate
+    - XDEBUG_MODE=coverage vendor/bin/phpunit --log-junit report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
+  only:
+    - merge_requests
+    - develop
