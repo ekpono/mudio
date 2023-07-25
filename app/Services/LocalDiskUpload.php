@@ -22,10 +22,10 @@ class LocalDiskUpload
         $tags = $payload['tags'];
 
         // Generate a unique name for the file
-        $thumbnailPath = uniqid().'.jpg';
+        $thumbnailPath = uniqid() . '.jpg';
 
         // Store the file in local storage
-        $filePathName = $file->storeAs('uploads', uniqid().'.'.$file->getClientOriginalExtension());
+        $filePathName = $file->storeAs('uploads', uniqid() . '.' . $file->getClientOriginalExtension());
 
         $extension = $file->getClientOriginalExtension();
         $filename = $file->getClientOriginalName();
@@ -58,12 +58,12 @@ class LocalDiskUpload
         }
 
         if (in_array($extension, $this->videoExtensions())) {
-            $path = storage_path().'/app/'.$filePathName;
+            $path = storage_path() . '/app/' . $filePathName;
             $this->createVideoThumbnail($path, $thumbnailPath);
         }
 
         if (in_array($extension, $this->audioExtensions())) {
-            $path = storage_path().'/app/'.$filePathName;
+            $path = storage_path() . '/app/' . $filePathName;
             $this->crateAudioThumbnail($path, $thumbnailPath);
         }
 

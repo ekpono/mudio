@@ -34,8 +34,8 @@ class MediaController extends Controller
                     $query->select('name');
                 }]
             )
-            ->where('title', 'like', '%'.$query.'%')
-            ->orWhere('description', 'like', '%'.$query.'%')
+            ->where('title', 'like', '%' . $query . '%')
+            ->orWhere('description', 'like', '%' . $query . '%')
             ->where('user_id', auth()->id())
             ->latest()
             ->paginate(Helper::API_PER_PAGE)

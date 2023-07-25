@@ -21,8 +21,8 @@ class MediaService
         $mediaQuery = Media::query()->public()
             ->where(
                 function ($q) use ($query) {
-                    $q->where('title', 'like', '%'.$query.'%')
-                        ->orWhere('description', 'like', '%'.$query.'%');
+                    $q->where('title', 'like', '%' . $query . '%')
+                        ->orWhere('description', 'like', '%' . $query . '%');
                 }
             );
 
@@ -31,7 +31,7 @@ class MediaService
 
         if ($userWatchedMedia->isNotEmpty()) {
             $orderClause = ', CASE
-                WHEN id IN ('.implode(',', $userWatchedMedia->toArray()).') THEN 1
+                WHEN id IN (' . implode(',', $userWatchedMedia->toArray()) . ') THEN 1
                 ELSE 0
             END';
         }
@@ -49,7 +49,7 @@ class MediaService
                     WHEN country = '{$preferredCountry->name}' THEN 1
                     WHEN continent = '{$preferredCountry->continent->name}' THEN 2
                     ELSE 3
-                END".$orderClause
+                END" . $orderClause
             );
         }
 
@@ -62,7 +62,7 @@ class MediaService
                 WHEN country = '{$userLocation['country']}' THEN 2
                 WHEN continent = '{$userLocation['continent']}' THEN 3
                 ELSE 4
-            END".$orderClause
+            END" . $orderClause
         );
     }
 }
