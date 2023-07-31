@@ -2,7 +2,9 @@
 import {
     ChevronDownIcon,
     MagnifyingGlassIcon,
-    FolderIcon
+    FolderIcon,
+    UsersIcon,
+    FilmIcon
 } from "@heroicons/vue/20/solid";
 import {Link, usePage} from '@inertiajs/vue3';
 import { ref } from "vue";
@@ -26,9 +28,11 @@ import {
 
 const auth = !! usePage().props.auth.user;
 const searchValue = route().params.q
+
 const navigation = [
-    { name: "Home", href: "/home", icon: HomeIcon, current: false, auth: true },
-    { name: "My Media", href: "/uploads", icon: FolderIcon, current: true, auth: auth },
+    { name: "Users", href: "/admin-dashboard", icon: UsersIcon, current: false },
+    { name: "Media", href: "/admin-media", icon: FilmIcon, current: true },
+    { name: "Report", href: "/admin-report", icon: FolderIcon, current: true },
 ];
 let sidebarOpen = ref(false);
 </script>
@@ -159,7 +163,6 @@ let sidebarOpen = ref(false);
                     >
                         <Link
                             :href="item.href"
-                            v-if="item.auth"
                             :class="[
                                 $page.url.includes(item.href)
                                     ? 'bg-gray-200 text-gray-900'
@@ -294,7 +297,7 @@ let sidebarOpen = ref(false);
                                     </MenuItem>
                                     <MenuItem v-slot="{ active }">
                                         <Link
-                                            :href="route('logout')"
+                                            :href="route('admin.logout')"
                                             method="post"
                                             :class="[
                                                 active ? 'bg-gray-100' : '',

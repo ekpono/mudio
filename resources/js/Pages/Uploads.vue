@@ -110,6 +110,7 @@ const toggleCreateModal = () => {
                 <NotificationAlert
                     v-if="showAlert"
                     :title="'Successfully uploaded'"
+                    class="mb-16"
                 />
                 <ul
                     role="list"

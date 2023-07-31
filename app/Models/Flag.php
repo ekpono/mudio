@@ -28,6 +28,6 @@ class Flag extends Model
 
     public function flagType()
     {
-        return $this->belongsTo(FlagType::class);
+        return $this->belongsTo(FlagType::class, 'flag_id');
     }
 }

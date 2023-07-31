@@ -19,7 +19,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
+    form.post('admin-login', {
         onFinish: () => form.reset('password'),
     });
 };
@@ -33,9 +33,8 @@ const submit = () => {
             {{ status }}
         </div>
 
-        <div v-if="$page.props.errors.blocked" class="mb-4 font-medium text-sm text-red-600">
-            {{ $page.props.errors.blocked }}
-        </div>
+        <h1 class="text-center mb-4 font-bold">Admin Login</h1>
+
 
         <form @submit.prevent="submit">
             <div>

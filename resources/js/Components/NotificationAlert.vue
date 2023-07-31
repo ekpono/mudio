@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-md bg-green-50 p-4 mb-16">
+    <div class="rounded-md bg-green-50 p-4">
         <div class="flex">
             <div class="flex-shrink-0">
                 <CheckCircleIcon

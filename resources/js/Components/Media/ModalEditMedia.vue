@@ -31,7 +31,6 @@ const updateMedia = () => {
     axios
         .patch(`/file/${props.media.id}`, payload)
         .then((response) => {
-            console.log(response.data);
             emit("edit:success");
         })
         .catch((error) => {

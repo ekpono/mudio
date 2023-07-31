@@ -85,4 +85,9 @@ class Media extends Model
     {
         return $this->hasMany(Flag::class);
     }
+
+    public function views()
+    {
+        return $this->hasMany(MediaView::class, 'media_id');
+    }
 }
