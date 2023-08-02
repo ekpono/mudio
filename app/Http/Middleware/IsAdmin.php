@@ -18,11 +18,12 @@ class IsAdmin
     {
         $user = $request->user();
 
-        if ($user && ($user->role === Role::ADMIN || $user->role === Role::SUPER_ADMIN)) {
+        if ($user && ($user->role->value === Role::ADMIN->value || $user->role === Role::SUPER_ADMIN->value)) {
             return $next($request);
         }
 
+
         //Confuse them with 404 instead of 403
-        return abort(404, 'Not Found');
+        abort(403, 'Not Found');
     }
 }

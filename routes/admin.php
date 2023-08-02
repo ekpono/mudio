@@ -14,9 +14,9 @@ Route::get('admin-login', [AuthenticatedSessionController::class, 'create'])
 Route::post('admin-login', [AuthenticatedSessionController::class, 'store']);
 
 //Pages
-Route::domain('admin.' . config('app.url'))->group(function () {
+Route::middleware(['is_admin', 'auth', 'verified'])->domain('admin.' . config('app.url'))->group(function () {
 
-    Route::get('/admin-dashboard', [AdminPagesController::class, 'dashboard'])->name('admin.users');
+    Route::get('/admin-dashboard', [AdminPagesController::class, 'dashboard'])->name('admin.dashboard');
 
     Route::get('/admin-media', [AdminPagesController::class, 'media']);
 
@@ -25,7 +25,7 @@ Route::domain('admin.' . config('app.url'))->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('admin.logout');
 
-})->middleware([IsAdmin::class, 'auth', 'verified']);
+});
 
 
 //API ENDPOINTS

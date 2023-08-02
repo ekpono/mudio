@@ -25,6 +25,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'ip' => '127.0.0.1',
             'state_id' => 1,
+            'role' => 'user'
         ];
     }
 
