@@ -20,7 +20,7 @@ Route::middleware(['is_admin', 'auth', 'verified'])->domain('admin.' . config('a
 
     Route::get('/admin-media', [AdminPagesController::class, 'media']);
 
-    Route::get('/admin-report', [AdminPagesController::class, 'flag']);
+    Route::get('/admin-report', [AdminPagesController::class, 'flag'])->name('admin.flag.page');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('admin.logout');
@@ -31,6 +31,6 @@ Route::middleware(['is_admin', 'auth', 'verified'])->domain('admin.' . config('a
 //API ENDPOINTS
 Route::middleware(['auth', 'verified'])->prefix('api/admin')->group(function () {
     Route::resource('users', UserController::class);
-    Route::get('media', [MediaController::class, 'index']);
-    Route::get('report', [FlagController::class, 'index']);
+    Route::get('media', [MediaController::class, 'index'])->name('admin.media.index');
+    Route::get('report', [FlagController::class, 'index'])->name('admin.report.index');
 });
