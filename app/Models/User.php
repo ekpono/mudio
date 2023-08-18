@@ -26,7 +26,10 @@ class User extends Authenticatable
         'password',
         'ip',
         'state_id',
-        'is_blocked'
+        'is_blocked',
+        'provider_id',
+        'profile_photo_path',
+        'oauth_provider'
     ];
 
     /**

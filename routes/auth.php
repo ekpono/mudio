@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
 });
 
 //Facebook Auth
-Route::get('auth/facebook', [AuthController::class, 'redirectToFacebook']);
+Route::get('auth/facebook', [AuthController::class, 'redirectToFacebook'])->name('login.facebook');
 Route::get('auth/facebook/callback', [AuthController::class, 'handleFacebookCallback']);
 
 //Twitter Auth
@@ -70,3 +70,7 @@ Route::get('auth/twitter/callback', [AuthController::class, 'handleTwitterCallba
 //Instagram Auth
 Route::get('auth/instagram', [AuthController::class, 'redirectToInstagram']);
 Route::get('auth/instagram/callback', [AuthController::class, 'handleInstagramCallback']);
+
+//Google Auth
+Route::get('auth/google', [AuthController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);

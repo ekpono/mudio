@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="/Users/ambrose/Code/Lawal/ul-mudio/phpunit.xml" tests="63" assertions="329" errors="1" failures="3" skipped="0" time="9.363227">
+    <testsuite name="Unit" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.002889">
+      <testsuite name="Tests\Unit\ExampleTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Unit/ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.002889">
+        <testcase name="test_that_true_is_true" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Unit/ExampleTest.php" line="12" class="Tests\Unit\ExampleTest" classname="Tests.Unit.ExampleTest" assertions="1" time="0.002889"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Feature" tests="62" assertions="328" errors="1" failures="3" skipped="0" time="9.360338">
+      <testsuite name="Tests\Feature\Admin\AdminEndpointTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminEndpointTest.php" tests="1" assertions="1" errors="0" failures="1" skipped="0" time="0.157826">
+        <testcase name="testAdminRouteAccess" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminEndpointTest.php" line="14" class="Tests\Feature\Admin\AdminEndpointTest" classname="Tests.Feature.Admin.AdminEndpointTest" assertions="1" time="0.157826">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\Admin\AdminEndpointTest::testAdminRouteAccess
+Expected response status code [200] but received 500.
+Failed asserting that 200 is identical to 500.
+
+The following exception occurred during the last request:
+
+Exception: Unable to locate file in Vite manifest: resources/js/Pages/Admin/Users.vue. in /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php:737
+Stack trace:
+#0 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php(279): Illuminate\Foundation\Vite-&gt;chunk(Array, 'resources/js/Pa...')
+#1 /Users/ambrose/Code/Lawal/ul-mudio/storage/framework/views/a1be332b15e4ae6f2a96bc7d1e97425b.php(16): Illuminate\Foundation\Vite-&gt;__invoke(Object(Illuminate\Support\Collection))
+#2 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): require('/Users/ambrose/...')
+#3 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(125): Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
+#4 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\Filesystem\Filesystem-&gt;getRequire('/Users/ambrose/...', Array)
+#5 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(70): Illuminate\View\Engines\PhpEngine-&gt;evaluatePath('/Users/ambrose/...', Array)
+#6 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(195): Illuminate\View\Engines\CompilerEngine-&gt;get('/Users/ambrose/...', Array)
+#7 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(178): Illuminate\View\View-&gt;getContents()
+#8 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(147): Illuminate\View\View-&gt;renderContents()
+#9 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\View\View-&gt;render()
+#10 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\Http\Response-&gt;setContent(Object(Illuminate\View\View))
+#11 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(57): Illuminate\Http\Response-&gt;__construct(Object(Illuminate\View\View), 200, Array)
+#12 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(87): Illuminate\Routing\ResponseFactory-&gt;make(Object(Illuminate\View\View), 200, Array)
+#13 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(353): Illuminate\Routing\ResponseFactory-&gt;view('app', Array)
+#14 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Response.php(110): Illuminate\Support\Facades\Facade::__callStatic('view', Array)
+#15 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(893): Inertia\Response-&gt;toResponse(Object(Illuminate\Http\Request))
+#16 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(878): Illuminate\Routing\Router::toResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#17 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(799): Illuminate\Routing\Router-&gt;prepareResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#18 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Routing\Router-&gt;Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php(41): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\EnsureEmailIsVerified-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/IsAdmin.php(22): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\IsAdmin-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/BlockBlockedUsers.php(26): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\BlockBlockedUsers-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/AddLinkHeadersForPreloadedAssets.php(19): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Middleware.php(87): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Inertia\Middleware-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Routing\Middleware\SubstituteBindings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\Authenticate-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Session\Middleware\StartSession-&gt;handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#39 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Session\Middleware\StartSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#41 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#42 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#43 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#46 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\Routing\Router-&gt;runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#47 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\Routing\Router-&gt;runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#48 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\Routing\Router-&gt;dispatchToRoute(Object(Illuminate\Http\Request))
+#49 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router-&gt;dispatch(Object(Illuminate\Http\Request))
+#50 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Foundation\Http\Kernel-&gt;Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#51 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#52 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#54 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#55 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#56 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\TrimStrings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#58 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ValidatePostSize-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#60 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#61 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#62 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\HandleCors-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#63 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#64 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\TrustProxies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#65 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#66 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#67 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#68 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(564): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))
+#69 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(324): Illuminate\Foundation\Testing\TestCase-&gt;call('GET', 'http://admin.lo...', Array, Array, Array, Array)
+#70 /Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminEndpointTest.php(26): Illuminate\Foundation\Testing\TestCase-&gt;get('http://admin.lo...')
+#71 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(1065): Tests\Feature\Admin\AdminEndpointTest-&gt;testAdminRouteAccess()
+#72 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php(174): PHPUnit\Framework\TestCase-&gt;runTest()
+#73 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(632): Illuminate\Foundation\Testing\TestCase-&gt;runTest()
+#74 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestRunner.php(101): PHPUnit\Framework\TestCase-&gt;runBare()
+#75 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(468): PHPUnit\Framework\TestRunner-&gt;run(Object(Tests\Feature\Admin\AdminEndpointTest))
+#76 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestCase-&gt;run()
+#77 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#78 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#79 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(63): PHPUnit\Framework\TestSuite-&gt;run()
+#80 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/Application.php(169): PHPUnit\TextUI\TestRunner-&gt;run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#81 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/phpunit(99): PHPUnit\TextUI\Application-&gt;run(Array)
+#82 /Users/ambrose/Code/Lawal/ul-mudio/vendor/bin/phpunit(122): include('/Users/ambrose/...')
+#83 {main}
+
+Next Spatie\LaravelIgnition\Exceptions\ViewException: Unable to locate file in Vite manifest: resources/js/Pages/Admin/Users.vue. in /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php:737
+Stack trace:
+#0 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php(279): Illuminate\Foundation\Vite-&gt;chunk(Array, 'resources/js/Pa...')
+#1 /Users/ambrose/Code/Lawal/ul-mudio/resources/views/app.blade.php(16): Illuminate\Foundation\Vite-&gt;__invoke(Object(Illuminate\Support\Collection))
+#2 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): require('/Users/ambrose/...')
+#3 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(125): Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
+#4 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\Filesystem\Filesystem-&gt;getRequire('/Users/ambrose/...', Array)
+#5 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(70): Illuminate\View\Engines\PhpEngine-&gt;evaluatePath('/Users/ambrose/...', Array)
+#6 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(195): Illuminate\View\Engines\CompilerEngine-&gt;get('/Users/ambrose/...', Array)
+#7 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(178): Illuminate\View\View-&gt;getContents()
+#8 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(147): Illuminate\View\View-&gt;renderContents()
+#9 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\View\View-&gt;render()
+#10 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\Http\Response-&gt;setContent(Object(Illuminate\View\View))
+#11 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(57): Illuminate\Http\Response-&gt;__construct(Object(Illuminate\View\View), 200, Array)
+#12 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(87): Illuminate\Routing\ResponseFactory-&gt;make(Object(Illuminate\View\View), 200, Array)
+#13 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(353): Illuminate\Routing\ResponseFactory-&gt;view('app', Array)
+#14 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Response.php(110): Illuminate\Support\Facades\Facade::__callStatic('view', Array)
+#15 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(893): Inertia\Response-&gt;toResponse(Object(Illuminate\Http\Request))
+#16 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(878): Illuminate\Routing\Router::toResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#17 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(799): Illuminate\Routing\Router-&gt;prepareResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#18 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Routing\Router-&gt;Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php(41): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\EnsureEmailIsVerified-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/IsAdmin.php(22): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\IsAdmin-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/BlockBlockedUsers.php(26): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\BlockBlockedUsers-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/AddLinkHeadersForPreloadedAssets.php(19): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Middleware.php(87): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Inertia\Middleware-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Routing\Middleware\SubstituteBindings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\Authenticate-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Session\Middleware\StartSession-&gt;handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#39 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Session\Middleware\StartSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#41 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#42 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#43 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#46 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\Routing\Router-&gt;runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#47 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\Routing\Router-&gt;runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#48 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\Routing\Router-&gt;dispatchToRoute(Object(Illuminate\Http\Request))
+#49 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router-&gt;dispatch(Object(Illuminate\Http\Request))
+#50 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Foundation\Http\Kernel-&gt;Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#51 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#52 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#54 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#55 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#56 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\TrimStrings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#58 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ValidatePostSize-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#60 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#61 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#62 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\HandleCors-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#63 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#64 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\TrustProxies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#65 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#66 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#67 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#68 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(564): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))
+#69 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(324): Illuminate\Foundation\Testing\TestCase-&gt;call('GET', 'http://admin.lo...', Array, Array, Array, Array)
+#70 /Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminEndpointTest.php(26): Illuminate\Foundation\Testing\TestCase-&gt;get('http://admin.lo...')
+#71 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(1065): Tests\Feature\Admin\AdminEndpointTest-&gt;testAdminRouteAccess()
+#72 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php(174): PHPUnit\Framework\TestCase-&gt;runTest()
+#73 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(632): Illuminate\Foundation\Testing\TestCase-&gt;runTest()
+#74 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestRunner.php(101): PHPUnit\Framework\TestCase-&gt;runBare()
+#75 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(468): PHPUnit\Framework\TestRunner-&gt;run(Object(Tests\Feature\Admin\AdminEndpointTest))
+#76 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestCase-&gt;run()
+#77 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#78 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#79 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(63): PHPUnit\Framework\TestSuite-&gt;run()
+#80 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/Application.php(169): PHPUnit\TextUI\TestRunner-&gt;run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#81 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/phpunit(99): PHPUnit\TextUI\Application-&gt;run(Array)
+#82 /Users/ambrose/Code/Lawal/ul-mudio/vendor/bin/phpunit(122): include('/Users/ambrose/...')
+#83 {main}
+
+----------------------------------------------------------------------------------
+
+Unable to locate file in Vite manifest: resources/js/Pages/Admin/Users.vue.
+
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:123
+/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminEndpointTest.php:29
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php:174</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Feature\Admin\AdminFlagControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminFlagControllerTest.php" tests="2" assertions="31" errors="0" failures="1" skipped="0" time="0.126473">
+        <testcase name="testFlagIndex" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminFlagControllerTest.php" line="17" class="Tests\Feature\Admin\AdminFlagControllerTest" classname="Tests.Feature.Admin.AdminFlagControllerTest" assertions="30" time="0.051805"/>
+        <testcase name="testFlagPage" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminFlagControllerTest.php" line="53" class="Tests\Feature\Admin\AdminFlagControllerTest" classname="Tests.Feature.Admin.AdminFlagControllerTest" assertions="1" time="0.074669">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\Admin\AdminFlagControllerTest::testFlagPage
+Expected response status code [200] but received 500.
+Failed asserting that 200 is identical to 500.
+
+The following exception occurred during the last request:
+
+Exception: Unable to locate file in Vite manifest: resources/js/Pages/Admin/Report.vue. in /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php:737
+Stack trace:
+#0 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php(279): Illuminate\Foundation\Vite-&gt;chunk(Array, 'resources/js/Pa...')
+#1 /Users/ambrose/Code/Lawal/ul-mudio/storage/framework/views/a1be332b15e4ae6f2a96bc7d1e97425b.php(16): Illuminate\Foundation\Vite-&gt;__invoke(Object(Illuminate\Support\Collection))
+#2 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): require('/Users/ambrose/...')
+#3 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(125): Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
+#4 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\Filesystem\Filesystem-&gt;getRequire('/Users/ambrose/...', Array)
+#5 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(70): Illuminate\View\Engines\PhpEngine-&gt;evaluatePath('/Users/ambrose/...', Array)
+#6 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(195): Illuminate\View\Engines\CompilerEngine-&gt;get('/Users/ambrose/...', Array)
+#7 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(178): Illuminate\View\View-&gt;getContents()
+#8 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(147): Illuminate\View\View-&gt;renderContents()
+#9 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\View\View-&gt;render()
+#10 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\Http\Response-&gt;setContent(Object(Illuminate\View\View))
+#11 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(57): Illuminate\Http\Response-&gt;__construct(Object(Illuminate\View\View), 200, Array)
+#12 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(87): Illuminate\Routing\ResponseFactory-&gt;make(Object(Illuminate\View\View), 200, Array)
+#13 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(353): Illuminate\Routing\ResponseFactory-&gt;view('app', Array)
+#14 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Response.php(110): Illuminate\Support\Facades\Facade::__callStatic('view', Array)
+#15 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(893): Inertia\Response-&gt;toResponse(Object(Illuminate\Http\Request))
+#16 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(878): Illuminate\Routing\Router::toResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#17 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(799): Illuminate\Routing\Router-&gt;prepareResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#18 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Routing\Router-&gt;Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php(41): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\EnsureEmailIsVerified-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/IsAdmin.php(22): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\IsAdmin-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/BlockBlockedUsers.php(26): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\BlockBlockedUsers-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/AddLinkHeadersForPreloadedAssets.php(19): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Middleware.php(87): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Inertia\Middleware-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Routing\Middleware\SubstituteBindings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\Authenticate-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Session\Middleware\StartSession-&gt;handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#39 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Session\Middleware\StartSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#41 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#42 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#43 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#46 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\Routing\Router-&gt;runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#47 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\Routing\Router-&gt;runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#48 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\Routing\Router-&gt;dispatchToRoute(Object(Illuminate\Http\Request))
+#49 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router-&gt;dispatch(Object(Illuminate\Http\Request))
+#50 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Foundation\Http\Kernel-&gt;Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#51 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#52 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#54 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#55 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#56 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\TrimStrings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#58 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ValidatePostSize-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#60 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#61 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#62 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\HandleCors-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#63 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#64 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\TrustProxies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#65 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#66 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#67 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#68 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(564): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))
+#69 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(324): Illuminate\Foundation\Testing\TestCase-&gt;call('GET', 'http://admin.lo...', Array, Array, Array, Array)
+#70 /Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminFlagControllerTest.php(61): Illuminate\Foundation\Testing\TestCase-&gt;get('http://admin.lo...')
+#71 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(1065): Tests\Feature\Admin\AdminFlagControllerTest-&gt;testFlagPage()
+#72 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php(174): PHPUnit\Framework\TestCase-&gt;runTest()
+#73 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(632): Illuminate\Foundation\Testing\TestCase-&gt;runTest()
+#74 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestRunner.php(101): PHPUnit\Framework\TestCase-&gt;runBare()
+#75 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(468): PHPUnit\Framework\TestRunner-&gt;run(Object(Tests\Feature\Admin\AdminFlagControllerTest))
+#76 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestCase-&gt;run()
+#77 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#78 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#79 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(63): PHPUnit\Framework\TestSuite-&gt;run()
+#80 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/Application.php(169): PHPUnit\TextUI\TestRunner-&gt;run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#81 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/phpunit(99): PHPUnit\TextUI\Application-&gt;run(Array)
+#82 /Users/ambrose/Code/Lawal/ul-mudio/vendor/bin/phpunit(122): include('/Users/ambrose/...')
+#83 {main}
+
+Next Spatie\LaravelIgnition\Exceptions\ViewException: Unable to locate file in Vite manifest: resources/js/Pages/Admin/Report.vue. in /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php:737
+Stack trace:
+#0 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php(279): Illuminate\Foundation\Vite-&gt;chunk(Array, 'resources/js/Pa...')
+#1 /Users/ambrose/Code/Lawal/ul-mudio/resources/views/app.blade.php(16): Illuminate\Foundation\Vite-&gt;__invoke(Object(Illuminate\Support\Collection))
+#2 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): require('/Users/ambrose/...')
+#3 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(125): Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
+#4 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\Filesystem\Filesystem-&gt;getRequire('/Users/ambrose/...', Array)
+#5 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(70): Illuminate\View\Engines\PhpEngine-&gt;evaluatePath('/Users/ambrose/...', Array)
+#6 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(195): Illuminate\View\Engines\CompilerEngine-&gt;get('/Users/ambrose/...', Array)
+#7 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(178): Illuminate\View\View-&gt;getContents()
+#8 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php(147): Illuminate\View\View-&gt;renderContents()
+#9 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(69): Illuminate\View\View-&gt;render()
+#10 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\Http\Response-&gt;setContent(Object(Illuminate\View\View))
+#11 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(57): Illuminate\Http\Response-&gt;__construct(Object(Illuminate\View\View), 200, Array)
+#12 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php(87): Illuminate\Routing\ResponseFactory-&gt;make(Object(Illuminate\View\View), 200, Array)
+#13 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(353): Illuminate\Routing\ResponseFactory-&gt;view('app', Array)
+#14 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Response.php(110): Illuminate\Support\Facades\Facade::__callStatic('view', Array)
+#15 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(893): Inertia\Response-&gt;toResponse(Object(Illuminate\Http\Request))
+#16 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(878): Illuminate\Routing\Router::toResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#17 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(799): Illuminate\Routing\Router-&gt;prepareResponse(Object(Illuminate\Http\Request), Object(Inertia\Response))
+#18 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Routing\Router-&gt;Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#19 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/EnsureEmailIsVerified.php(41): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\EnsureEmailIsVerified-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/IsAdmin.php(22): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\IsAdmin-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#23 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/BlockBlockedUsers.php(26): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#24 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\BlockBlockedUsers-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/AddLinkHeadersForPreloadedAssets.php(19): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Middleware.php(87): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Inertia\Middleware-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#29 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#30 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Routing\Middleware\SubstituteBindings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#31 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(57): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#32 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Auth\Middleware\Authenticate-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#33 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#34 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#35 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Session\Middleware\StartSession-&gt;handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#39 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Session\Middleware\StartSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#41 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#42 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#43 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#44 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#45 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#46 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\Routing\Router-&gt;runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#47 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\Routing\Router-&gt;runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#48 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\Routing\Router-&gt;dispatchToRoute(Object(Illuminate\Http\Request))
+#49 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router-&gt;dispatch(Object(Illuminate\Http\Request))
+#50 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Foundation\Http\Kernel-&gt;Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#51 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#52 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#53 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#54 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#55 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#56 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\TrimStrings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#57 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#58 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ValidatePostSize-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#59 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#60 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#61 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#62 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\HandleCors-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#63 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#64 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\TrustProxies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#65 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#66 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#67 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#68 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(564): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))
+#69 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(324): Illuminate\Foundation\Testing\TestCase-&gt;call('GET', 'http://admin.lo...', Array, Array, Array, Array)
+#70 /Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminFlagControllerTest.php(61): Illuminate\Foundation\Testing\TestCase-&gt;get('http://admin.lo...')
+#71 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(1065): Tests\Feature\Admin\AdminFlagControllerTest-&gt;testFlagPage()
+#72 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php(174): PHPUnit\Framework\TestCase-&gt;runTest()
+#73 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(632): Illuminate\Foundation\Testing\TestCase-&gt;runTest()
+#74 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestRunner.php(101): PHPUnit\Framework\TestCase-&gt;runBare()
+#75 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(468): PHPUnit\Framework\TestRunner-&gt;run(Object(Tests\Feature\Admin\AdminFlagControllerTest))
+#76 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestCase-&gt;run()
+#77 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#78 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#79 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(63): PHPUnit\Framework\TestSuite-&gt;run()
+#80 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/Application.php(169): PHPUnit\TextUI\TestRunner-&gt;run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#81 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/phpunit(99): PHPUnit\TextUI\Application-&gt;run(Array)
+#82 /Users/ambrose/Code/Lawal/ul-mudio/vendor/bin/phpunit(122): include('/Users/ambrose/...')
+#83 {main}
+
+----------------------------------------------------------------------------------
+
+Unable to locate file in Vite manifest: resources/js/Pages/Admin/Report.vue.
+
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Testing/TestResponse.php:123
+/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminFlagControllerTest.php:63
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php:174</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Feature\Admin\AdminMediaControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminMediaControllerTest.php" tests="1" assertions="86" errors="0" failures="0" skipped="0" time="0.017480">
+        <testcase name="testMediaIndex" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminMediaControllerTest.php" line="16" class="Tests\Feature\Admin\AdminMediaControllerTest" classname="Tests.Feature.Admin.AdminMediaControllerTest" assertions="86" time="0.017480"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\Admin\AdminUserControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminUserControllerTest.php" tests="1" assertions="10" errors="0" failures="0" skipped="0" time="0.011743">
+        <testcase name="test_example" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Admin/AdminUserControllerTest.php" line="23" class="Tests\Feature\Admin\AdminUserControllerTest" classname="Tests.Feature.Admin.AdminUserControllerTest" assertions="10" time="0.011743"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\Auth\AuthenticationTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/AuthenticationTest.php" tests="3" assertions="5" errors="0" failures="0" skipped="0" time="0.295977">
+        <testcase name="test_login_screen_can_be_rendered" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/AuthenticationTest.php" line="14" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" assertions="1" time="0.006751"/>
+        <testcase name="test_users_can_authenticate_using_the_login_screen" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/AuthenticationTest.php" line="21" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" assertions="3" time="0.073931"/>
+        <testcase name="test_users_can_not_authenticate_with_invalid_password" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/AuthenticationTest.php" line="34" class="Tests\Feature\Auth\AuthenticationTest" classname="Tests.Feature.Auth.AuthenticationTest" assertions="1" time="0.215295"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\Auth\EmailVerificationTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/EmailVerificationTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="0.025811">
+        <testcase name="test_email_verification_screen_can_be_rendered" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/EmailVerificationTest.php" line="17" class="Tests\Feature\Auth\EmailVerificationTest" classname="Tests.Feature.Auth.EmailVerificationTest" assertions="1" time="0.006714"/>
+        <testcase name="test_email_can_be_verified" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/EmailVerificationTest.php" line="28" class="Tests\Feature\Auth\EmailVerificationTest" classname="Tests.Feature.Auth.EmailVerificationTest" assertions="4" time="0.009759"/>
+        <testcase name="test_email_is_not_verified_with_invalid_hash" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/EmailVerificationTest.php" line="49" class="Tests\Feature\Auth\EmailVerificationTest" classname="Tests.Feature.Auth.EmailVerificationTest" assertions="1" time="0.009338"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\Auth\PasswordConfirmationTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordConfirmationTest.php" tests="3" assertions="4" errors="0" failures="0" skipped="0" time="0.284317">
+        <testcase name="test_confirm_password_screen_can_be_rendered" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordConfirmationTest.php" line="13" class="Tests\Feature\Auth\PasswordConfirmationTest" classname="Tests.Feature.Auth.PasswordConfirmationTest" assertions="1" time="0.006659"/>
+        <testcase name="test_password_can_be_confirmed" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordConfirmationTest.php" line="22" class="Tests\Feature\Auth\PasswordConfirmationTest" classname="Tests.Feature.Auth.PasswordConfirmationTest" assertions="2" time="0.064583"/>
+        <testcase name="test_password_is_not_confirmed_with_invalid_password" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordConfirmationTest.php" line="34" class="Tests\Feature\Auth\PasswordConfirmationTest" classname="Tests.Feature.Auth.PasswordConfirmationTest" assertions="1" time="0.213076"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\Auth\PasswordResetTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordResetTest.php" tests="4" assertions="6" errors="0" failures="0" skipped="0" time="0.047750">
+        <testcase name="test_reset_password_link_screen_can_be_rendered" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordResetTest.php" line="15" class="Tests\Feature\Auth\PasswordResetTest" classname="Tests.Feature.Auth.PasswordResetTest" assertions="1" time="0.004827"/>
+        <testcase name="test_reset_password_link_can_be_requested" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordResetTest.php" line="22" class="Tests\Feature\Auth\PasswordResetTest" classname="Tests.Feature.Auth.PasswordResetTest" assertions="1" time="0.016609"/>
+        <testcase name="test_reset_password_screen_can_be_rendered" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordResetTest.php" line="33" class="Tests\Feature\Auth\PasswordResetTest" classname="Tests.Feature.Auth.PasswordResetTest" assertions="2" time="0.010192"/>
+        <testcase name="test_password_can_be_reset_with_valid_token" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordResetTest.php" line="50" class="Tests\Feature\Auth\PasswordResetTest" classname="Tests.Feature.Auth.PasswordResetTest" assertions="2" time="0.016122"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\Auth\PasswordUpdateTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordUpdateTest.php" tests="2" assertions="8" errors="0" failures="0" skipped="0" time="0.134160">
+        <testcase name="test_password_can_be_updated" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordUpdateTest.php" line="14" class="Tests\Feature\Auth\PasswordUpdateTest" classname="Tests.Feature.Auth.PasswordUpdateTest" assertions="4" time="0.067815"/>
+        <testcase name="test_correct_password_must_be_provided_to_update_password" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/PasswordUpdateTest.php" line="34" class="Tests\Feature\Auth\PasswordUpdateTest" classname="Tests.Feature.Auth.PasswordUpdateTest" assertions="4" time="0.066345"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\Auth\RegistrationTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/RegistrationTest.php" tests="2" assertions="4" errors="0" failures="0" skipped="0" time="0.953723">
+        <testcase name="test_registration_screen_can_be_rendered" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/RegistrationTest.php" line="13" class="Tests\Feature\Auth\RegistrationTest" classname="Tests.Feature.Auth.RegistrationTest" assertions="1" time="0.004717"/>
+        <testcase name="test_new_users_can_register" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/Auth/RegistrationTest.php" line="20" class="Tests\Feature\Auth\RegistrationTest" classname="Tests.Feature.Auth.RegistrationTest" assertions="3" time="0.949006"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\AuthControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthControllerTest.php" tests="2" assertions="3" errors="0" failures="1" skipped="0" time="0.080089">
+        <testcase name="testRedirectToFacebook" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthControllerTest.php" line="17" class="Tests\Feature\AuthControllerTest" classname="Tests.Feature.AuthControllerTest" assertions="2" time="0.010120"/>
+        <testcase name="testHandleFacebookCallback" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthControllerTest.php" line="28" class="Tests\Feature\AuthControllerTest" classname="Tests.Feature.AuthControllerTest" assertions="1" time="0.069969">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">Tests\Feature\AuthControllerTest::testHandleFacebookCallback
+Failed asserting that a row in the table [users] matches the attributes {
+    "provider_id": "facebook-user-id",
+    "email": "facebook@example.com",
+    "name": "Facebook User",
+    "profile_photo_path": "https:\/\/example.com\/avatar.jpg"
+}.
+
+The table is empty.
+
+The following exception occurred during the last request:
+
+Mockery\Exception\BadMethodCallException: Received Mockery_2_Laravel_Socialite_SocialiteManager::driver(), but no expectations were specified in /Users/ambrose/Code/Lawal/ul-mudio/vendor/mockery/mockery/library/Mockery/Loader/EvalLoader.php(34) : eval()'d code:933
+Stack trace:
+#0 /Users/ambrose/Code/Lawal/ul-mudio/vendor/mockery/mockery/library/Mockery/Loader/EvalLoader.php(34) : eval()'d code(1094): Mockery_2_Laravel_Socialite_SocialiteManager-&gt;_mockery_handleMethodCall('driver', Array)
+#1 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php(353): Mockery_2_Laravel_Socialite_SocialiteManager-&gt;driver('facebook')
+#2 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Controllers/AuthController.php(18): Illuminate\Support\Facades\Facade::__callStatic('driver', Array)
+#3 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(54): App\Http\Controllers\AuthController-&gt;handleFacebookCallback()
+#4 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(43): Illuminate\Routing\Controller-&gt;callAction('handleFacebookC...', Array)
+#5 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Route.php(260): Illuminate\Routing\ControllerDispatcher-&gt;dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\AuthController), 'handleFacebookC...')
+#6 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\Routing\Route-&gt;runController()
+#7 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(799): Illuminate\Routing\Route-&gt;run()
+#8 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Routing\Router-&gt;Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#9 /Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/BlockBlockedUsers.php(26): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#10 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): App\Http\Middleware\BlockBlockedUsers-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/AddLinkHeadersForPreloadedAssets.php(19): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#12 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 /Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Middleware.php(87): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Inertia\Middleware-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(50): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Routing\Middleware\SubstituteBindings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#17 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(78): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#18 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\View\Middleware\ShareErrorsFromSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\Session\Middleware\StartSession-&gt;handleStatefulRequest(Object(Illuminate\Http\Request), Object(Illuminate\Session\Store), Object(Closure))
+#23 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Session\Middleware\StartSession-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#26 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(67): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#27 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Cookie\Middleware\EncryptCookies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(800): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#30 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(777): Illuminate\Routing\Router-&gt;runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(741): Illuminate\Routing\Router-&gt;runRoute(Object(Illuminate\Http\Request), Object(Illuminate\Routing\Route))
+#32 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php(730): Illuminate\Routing\Router-&gt;dispatchToRoute(Object(Illuminate\Http\Request))
+#33 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(200): Illuminate\Routing\Router-&gt;dispatch(Object(Illuminate\Http\Request))
+#34 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(141): Illuminate\Foundation\Http\Kernel-&gt;Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#35 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#36 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#38 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#39 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\Foundation\Http\Middleware\TransformsRequest-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#40 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\TrimStrings-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#41 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#42 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\ValidatePostSize-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#43 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#44 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#45 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#46 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\HandleCors-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#47 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#48 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(180): Illuminate\Http\Middleware\TrustProxies-&gt;handle(Object(Illuminate\Http\Request), Object(Closure))
+#49 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(116): Illuminate\Pipeline\Pipeline-&gt;Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#50 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(175): Illuminate\Pipeline\Pipeline-&gt;then(Object(Closure))
+#51 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(144): Illuminate\Foundation\Http\Kernel-&gt;sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#52 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(564): Illuminate\Foundation\Http\Kernel-&gt;handle(Object(Illuminate\Http\Request))
+#53 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php(324): Illuminate\Foundation\Testing\TestCase-&gt;call('GET', '/auth/facebook/...', Array, Array, Array, Array)
+#54 /Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthControllerTest.php(51): Illuminate\Foundation\Testing\TestCase-&gt;get('/auth/facebook/...')
+#55 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(1065): Tests\Feature\AuthControllerTest-&gt;testHandleFacebookCallback()
+#56 /Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php(174): PHPUnit\Framework\TestCase-&gt;runTest()
+#57 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(632): Illuminate\Foundation\Testing\TestCase-&gt;runTest()
+#58 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestRunner.php(101): PHPUnit\Framework\TestCase-&gt;runBare()
+#59 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestCase.php(468): PHPUnit\Framework\TestRunner-&gt;run(Object(Tests\Feature\AuthControllerTest))
+#60 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestCase-&gt;run()
+#61 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#62 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/Framework/TestSuite.php(340): PHPUnit\Framework\TestSuite-&gt;run()
+#63 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/TestRunner.php(63): PHPUnit\Framework\TestSuite-&gt;run()
+#64 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/src/TextUI/Application.php(169): PHPUnit\TextUI\TestRunner-&gt;run(Object(PHPUnit\TextUI\Configuration\Configuration), Object(PHPUnit\Runner\ResultCache\DefaultResultCache), Object(PHPUnit\Framework\TestSuite))
+#65 /Users/ambrose/Code/Lawal/ul-mudio/vendor/phpunit/phpunit/phpunit(99): PHPUnit\TextUI\Application-&gt;run(Array)
+#66 /Users/ambrose/Code/Lawal/ul-mudio/vendor/bin/phpunit(122): include('/Users/ambrose/...')
+#67 {main}
+
+----------------------------------------------------------------------------------
+
+Received Mockery_2_Laravel_Socialite_SocialiteManager::driver(), but no expectations were specified
+
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/InteractsWithDatabase.php:30
+/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthControllerTest.php:55
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php:174</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Feature\AuthenticatedSessionControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthenticatedSessionControllerTest.php" tests="3" assertions="16" errors="0" failures="0" skipped="0" time="0.078989">
+        <testcase name="testCreate" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthenticatedSessionControllerTest.php" line="16" class="Tests\Feature\AuthenticatedSessionControllerTest" classname="Tests.Feature.AuthenticatedSessionControllerTest" assertions="10" time="0.007930"/>
+        <testcase name="testStore" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthenticatedSessionControllerTest.php" line="28" class="Tests\Feature\AuthenticatedSessionControllerTest" classname="Tests.Feature.AuthenticatedSessionControllerTest" assertions="3" time="0.066018"/>
+        <testcase name="testDestroy" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/AuthenticatedSessionControllerTest.php" line="42" class="Tests\Feature\AuthenticatedSessionControllerTest" classname="Tests.Feature.AuthenticatedSessionControllerTest" assertions="3" time="0.005041"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\BroadcastServiceProviderTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/BroadcastServiceProviderTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.007539">
+        <testcase name="testBoot" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/BroadcastServiceProviderTest.php" line="14" class="Tests\Feature\BroadcastServiceProviderTest" classname="Tests.Feature.BroadcastServiceProviderTest" assertions="1" time="0.007539"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\CommentReplyControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/CommentReplyControllerTest.php" tests="2" assertions="27" errors="0" failures="0" skipped="0" time="0.029049">
+        <testcase name="testCommentReplyIndex" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/CommentReplyControllerTest.php" line="15" class="Tests\Feature\CommentReplyControllerTest" classname="Tests.Feature.CommentReplyControllerTest" assertions="18" time="0.020017"/>
+        <testcase name="testCommentReplyStore" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/CommentReplyControllerTest.php" line="43" class="Tests\Feature\CommentReplyControllerTest" classname="Tests.Feature.CommentReplyControllerTest" assertions="9" time="0.009032"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\CountryControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/CountryControllerTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.005967">
+        <testcase name="testGetCountries" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/CountryControllerTest.php" line="17" class="Tests\Feature\CountryControllerTest" classname="Tests.Feature.CountryControllerTest" assertions="3" time="0.005967"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\DashboardControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/DashboardControllerTest.php" tests="1" assertions="0" errors="1" failures="0" skipped="0" time="0.022072">
+        <testcase name="testShowMedia" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/DashboardControllerTest.php" line="14" class="Tests\Feature\DashboardControllerTest" classname="Tests.Feature.DashboardControllerTest" assertions="0" time="0.022072">
+          <error type="Illuminate\View\ViewException">Tests\Feature\DashboardControllerTest::testShowMedia
+Illuminate\View\ViewException: Unable to locate file in Vite manifest: resources/js/Pages/Video/VideoView.vue. (View: /Users/ambrose/Code/Lawal/ul-mudio/resources/views/app.blade.php)
+
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php:737
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Vite.php:279
+/Users/ambrose/Code/Lawal/ul-mudio/storage/framework/views/a1be332b15e4ae6f2a96bc7d1e97425b.php:16
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php:124
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php:125
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php:58
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php:70
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php:195
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php:178
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/View.php:147
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php:69
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Response.php:35
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php:57
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/ResponseFactory.php:87
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:353
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Response.php:110
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php:893
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php:878
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php:799
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:141
+/Users/ambrose/Code/Lawal/ul-mudio/app/Http/Middleware/BlockBlockedUsers.php:26
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/AddLinkHeadersForPreloadedAssets.php:19
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/inertiajs/inertia-laravel/src/Middleware.php:87
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php:50
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php:78
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php:49
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php:121
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php:64
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php:37
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php:67
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:116
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php:800
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php:777
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php:741
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Routing/Router.php:730
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:200
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:141
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php:21
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php:31
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php:21
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php:40
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php:27
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php:86
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php:49
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php:39
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:180
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php:116
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:175
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php:144
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php:564
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/Concerns/MakesHttpRequests.php:324
+/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/DashboardControllerTest.php:25
+/Users/ambrose/Code/Lawal/ul-mudio/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestCase.php:174</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="Tests\Feature\ExampleTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ExampleTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.007143">
+        <testcase name="test_the_application_returns_a_successful_response" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ExampleTest.php" line="16" class="Tests\Feature\ExampleTest" classname="Tests.Feature.ExampleTest" assertions="1" time="0.007143"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\FlagTypeControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/FlagTypeControllerTest.php" tests="2" assertions="39" errors="0" failures="0" skipped="0" time="1.880035">
+        <testcase name="testIndexFlagTypes" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/FlagTypeControllerTest.php" line="15" class="Tests\Feature\FlagTypeControllerTest" classname="Tests.Feature.FlagTypeControllerTest" assertions="38" time="0.940124"/>
+        <testcase name="testFlagsRelationship" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/FlagTypeControllerTest.php" line="43" class="Tests\Feature\FlagTypeControllerTest" classname="Tests.Feature.FlagTypeControllerTest" assertions="1" time="0.939911"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\FlaggingMediaTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/FlaggingMediaTest.php" tests="2" assertions="8" errors="0" failures="0" skipped="0" time="0.025997">
+        <testcase name="testStoreFlag" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/FlaggingMediaTest.php" line="24" class="Tests\Feature\FlaggingMediaTest" classname="Tests.Feature.FlaggingMediaTest" assertions="3" time="0.012033"/>
+        <testcase name="testIndexFlags" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/FlaggingMediaTest.php" line="47" class="Tests\Feature\FlaggingMediaTest" classname="Tests.Feature.FlaggingMediaTest" assertions="5" time="0.013964"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\GuestControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/GuestControllerTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.003315">
+        <testcase name="testGuestRedirectToHome" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/GuestControllerTest.php" line="12" class="Tests\Feature\GuestControllerTest" classname="Tests.Feature.GuestControllerTest" assertions="3" time="0.003315"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\LikeAndDislikeTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/LikeAndDislikeTest.php" tests="2" assertions="4" errors="0" failures="0" skipped="0" time="0.009132">
+        <testcase name="testLikeableRelationship" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/LikeAndDislikeTest.php" line="15" class="Tests\Feature\LikeAndDislikeTest" classname="Tests.Feature.LikeAndDislikeTest" assertions="2" time="0.005438"/>
+        <testcase name="testUserRelationship" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/LikeAndDislikeTest.php" line="31" class="Tests\Feature\LikeAndDislikeTest" classname="Tests.Feature.LikeAndDislikeTest" assertions="2" time="0.003694"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\MediaCommentTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaCommentTest.php" tests="3" assertions="9" errors="0" failures="0" skipped="0" time="0.019896">
+        <testcase name="testUserCanCreateCommentForMedia" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaCommentTest.php" line="15" class="Tests\Feature\MediaCommentTest" classname="Tests.Feature.MediaCommentTest" assertions="2" time="0.007923"/>
+        <testcase name="testCreateComment" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaCommentTest.php" line="33" class="Tests\Feature\MediaCommentTest" classname="Tests.Feature.MediaCommentTest" assertions="5" time="0.003514"/>
+        <testcase name="testDeleteComment" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaCommentTest.php" line="55" class="Tests\Feature\MediaCommentTest" classname="Tests.Feature.MediaCommentTest" assertions="2" time="0.008459"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\MediaControllerTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaControllerTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.014952">
+        <testcase name="testSearchMedia" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaControllerTest.php" line="13" class="Tests\Feature\MediaControllerTest" classname="Tests.Feature.MediaControllerTest" assertions="3" time="0.014952"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\MediaLikesAndDislikeTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaLikesAndDislikeTest.php" tests="4" assertions="14" errors="0" failures="0" skipped="0" time="0.029656">
+        <testcase name="testToggleLike" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaLikesAndDislikeTest.php" line="23" class="Tests\Feature\MediaLikesAndDislikeTest" classname="Tests.Feature.MediaLikesAndDislikeTest" assertions="4" time="0.007738"/>
+        <testcase name="testToggleDislike" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaLikesAndDislikeTest.php" line="39" class="Tests\Feature\MediaLikesAndDislikeTest" classname="Tests.Feature.MediaLikesAndDislikeTest" assertions="4" time="0.006825"/>
+        <testcase name="testToggleLikeWhenAlreadyLiked" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaLikesAndDislikeTest.php" line="55" class="Tests\Feature\MediaLikesAndDislikeTest" classname="Tests.Feature.MediaLikesAndDislikeTest" assertions="3" time="0.007531"/>
+        <testcase name="testToggleDislikeWhenAlreadyDisliked" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaLikesAndDislikeTest.php" line="78" class="Tests\Feature\MediaLikesAndDislikeTest" classname="Tests.Feature.MediaLikesAndDislikeTest" assertions="3" time="0.007562"/>
+      </testsuite>
+      <testsuite name="MediaServiceTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaServiceTest.php" tests="4" assertions="4" errors="0" failures="0" skipped="0" time="1.903222">
+        <testcase name="testComputeMostViewed" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaServiceTest.php" line="18" class="MediaServiceTest" classname="MediaServiceTest" assertions="1" time="0.016002"/>
+        <testcase name="testGetMediaQuery" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaServiceTest.php" line="27" class="MediaServiceTest" classname="MediaServiceTest" assertions="1" time="0.937319"/>
+        <testcase name="testMediaResponseIsOrderedBaseOnUserPreference" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaServiceTest.php" line="61" class="MediaServiceTest" classname="MediaServiceTest" assertions="1" time="0.943213"/>
+        <testcase name="testGetMediaQueryWithCurrentLocation" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaServiceTest.php" line="86" class="MediaServiceTest" classname="MediaServiceTest" assertions="1" time="0.006688"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\MediaTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaTest.php" tests="3" assertions="6" errors="0" failures="0" skipped="0" time="1.897804">
+        <testcase name="testUserCanCreateAudioFile" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaTest.php" line="16" class="Tests\Feature\MediaTest" classname="Tests.Feature.MediaTest" assertions="2" time="0.953471"/>
+        <testcase name="testUserCanUpdateAudioFile" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaTest.php" line="43" class="Tests\Feature\MediaTest" classname="Tests.Feature.MediaTest" assertions="2" time="0.936418"/>
+        <testcase name="testUserCanDeleteAudioFile" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/MediaTest.php" line="70" class="Tests\Feature\MediaTest" classname="Tests.Feature.MediaTest" assertions="2" time="0.007915"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\ProfileTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ProfileTest.php" tests="5" assertions="21" errors="0" failures="0" skipped="0" time="0.152654">
+        <testcase name="test_profile_page_is_displayed" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ProfileTest.php" line="13" class="Tests\Feature\ProfileTest" classname="Tests.Feature.ProfileTest" assertions="1" time="0.007140"/>
+        <testcase name="test_profile_information_can_be_updated" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ProfileTest.php" line="24" class="Tests\Feature\ProfileTest" classname="Tests.Feature.ProfileTest" assertions="6" time="0.007100"/>
+        <testcase name="test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ProfileTest.php" line="46" class="Tests\Feature\ProfileTest" classname="Tests.Feature.ProfileTest" assertions="4" time="0.005730"/>
+        <testcase name="test_user_can_delete_their_account" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ProfileTest.php" line="64" class="Tests\Feature\ProfileTest" classname="Tests.Feature.ProfileTest" assertions="5" time="0.066319"/>
+        <testcase name="test_correct_password_must_be_provided_to_delete_account" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/ProfileTest.php" line="82" class="Tests\Feature\ProfileTest" classname="Tests.Feature.ProfileTest" assertions="5" time="0.066365"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\SettingsTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/SettingsTest.php" tests="1" assertions="3" errors="0" failures="0" skipped="0" time="0.007278">
+        <testcase name="testStoreSettings" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/SettingsTest.php" line="16" class="Tests\Feature\SettingsTest" classname="Tests.Feature.SettingsTest" assertions="3" time="0.007278"/>
+      </testsuite>
+      <testsuite name="Tests\Feature\TagTest" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/TagTest.php" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="1.130290">
+        <testcase name="testUserCanGetTags" file="/Users/ambrose/Code/Lawal/ul-mudio/tests/Feature/TagTest.php" line="14" class="Tests\Feature\TagTest" classname="Tests.Feature.TagTest" assertions="2" time="1.130290"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

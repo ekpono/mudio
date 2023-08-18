@@ -16,12 +16,12 @@
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.8",
+        "mongodb/mongodb": "^1.15",
         "php-ffmpeg/php-ffmpeg": "^1.1",
+        "soyuka/stubs-mongodb": "^1.0",
         "spatie/laravel-tags": "^4.3",
         "tightenco/ziggy": "^1.0",
-        "torann/geoip": "^3.0",
-        "mongodb/mongodb": "^1.15",
-        "soyuka/stubs-mongodb": "^1.0"
+        "torann/geoip": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

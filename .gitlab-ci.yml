@@ -7,6 +7,12 @@ variables:
 test:
   image: php:${PHP_VERSION}-fpm
   stage: test
+  before_script:  # Install Composer before running the script
+    - apt-get update
+    - apt-get install -y unzip
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+    - php -r "unlink('composer-setup.php');"
   script:
     - cp .env.example .env
     - composer install --no-interaction
